@@ -6,7 +6,7 @@
  * Plugin URI: 		-
  *
  * Description: 	Option and Metabox Framework 
- * Version: 		0.1.0
+ * Version: 		0.2.0
  *
  * Author:			ANEX
  * Author URI: 		http://anex.at
@@ -38,11 +38,11 @@ defined( 'ENCORE_PLUGIN_FILE' )    or define( 'ENCORE_PLUGIN_FILE', __FILE__ );
  * Load Languages
  */
 
-add_action('plugins_loaded', 'encore_load_textdomain');
-
-function encore_load_textdomain() {
-	load_plugin_textdomain( 'encore', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' ); 
-}
+//add_action('plugins_loaded', 'encore_load_textdomain');
+//
+//function encore_load_textdomain() {
+//	load_plugin_textdomain( 'encore', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' ); 
+//}
 
 
 
