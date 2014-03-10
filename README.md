@@ -1,4 +1,2 @@
-Vafpress Framework Plugin
+ENCORE Framework
 =========================
-
-Plugin version of Vafpress Framework (https://github.com/vafour/vafpress-framework)

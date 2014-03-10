@@ -58,12 +58,39 @@ require 'framework/bootstrap.php';
  * Base Class
  */
 
-class encore {}
+class encore {
+	
+    /**
+     * Initializes the plugin.
+     */
+    private function __construct() {
+				
+		// Internationalize the text strings used.
+		add_action( 'plugins_loaded', array( $this, 'i18n' ), 2 );
+		
+    } // end constructor
+	
+	/**
+	 * Loads the translation files.
+	 *
+	 * @since  0.1.0
+	 * @access public
+	 * @return void
+	 */
+	public function i18n() {
+
+		/* Load the translation of the plugin. */
+		load_plugin_textdomain( 'encore', false, 'encore/lang' );
+	}
+
+}
 
 
 
 /**
  * Wrapper Function
+ *
+ * @since 0.1
  */
 
 function encore_get_option( $key, $name ) {
