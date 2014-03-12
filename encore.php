@@ -22,12 +22,12 @@
  * Setup Contants
  */
 
-defined( 'VP_PLUGIN_VERSION' ) or define( 'VP_PLUGIN_VERSION', '0.1.0' );
+defined( 'VP_PLUGIN_VERSION' ) or define( 'VP_PLUGIN_VERSION', '0.2.0' );
 defined( 'VP_PLUGIN_URL' )     or define( 'VP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 defined( 'VP_PLUGIN_DIR' )     or define( 'VP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 defined( 'VP_PLUGIN_FILE' )    or define( 'VP_PLUGIN_FILE', __FILE__ );
 
-defined( 'ENCORE_PLUGIN_VERSION' ) or define( 'ENCORE_PLUGIN_VERSION', '0.1.0' );
+defined( 'ENCORE_PLUGIN_VERSION' ) or define( 'ENCORE_PLUGIN_VERSION', '0.2.0' );
 defined( 'ENCORE_PLUGIN_URL' )     or define( 'ENCORE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 defined( 'ENCORE_PLUGIN_DIR' )     or define( 'ENCORE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 defined( 'ENCORE_PLUGIN_FILE' )    or define( 'ENCORE_PLUGIN_FILE', __FILE__ );
@@ -100,3 +100,10 @@ function encore_get_option( $key, $name ) {
 function encore_option( $key, $name ) {
 	return encore_get_option( $key . '.' . $name );
 }
+
+
+// this is a PHP 5.3+ function. should be more efficient than creating
+// empty sub classes
+class_alias('VP_Option',  'Encore_Option');
+class_alias('VP_Metabox', 'Encore_Metabox');
+class_alias('VP_ShortcodeGenerator', 'Encore_ShortcodeGenerator');

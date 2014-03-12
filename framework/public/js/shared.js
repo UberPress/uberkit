@@ -1078,6 +1078,7 @@ vp.init_controls = function($parent)
 	// init date picker
 	vp.init_datepicker($parent.find('.vp-js-datepicker'));
 	vp.init_fontawesome_chooser($parent.find('.vp-js-fontawesome'));
+	vp.init_socicon_chooser($parent.find('.vp-js-socicon'));
 	vp.init_select2($parent.find('.vp-js-select2'));
 	vp.init_sorter($parent.find('.vp-js-sorter'));
 	vp.init_colorpicker($parent.find('.vp-js-colorpicker'));
@@ -1095,6 +1096,26 @@ vp.init_fontawesome_chooser = function($elements)
 			return;
 		var format = function vp_fontawesome_chooser_format(icon){
 			return '<span class="fontawesome"><i class="fa ' + icon.id + '"></i>' + icon.text + '</span>';
+		};
+		$elements.select2({
+			formatResult: format,
+			formatSelection: format,
+			escapeMarkup: function(m) { return m; },
+			allowClear: true,
+			placeholder: vp_wp.ctrl_msg.fac_placeholder
+		});
+	}
+};
+
+// Socicon Chooser
+vp.init_socicon_chooser = function($elements)
+{
+	if (jQuery.fn.select2)
+	{
+		if($elements.length <= 0)
+			return;
+		var format = function vp_socicon_chooser_format(icon){
+			return '<span class="fontawesome"><i class="socicon ' + icon.id + '"></i>' + icon.text + '</span>';
 		};
 		$elements.select2({
 			formatResult: format,

@@ -188,6 +188,28 @@ function vp_get_fontawesome_icons()
 	return $icons;
 }
 
+function vp_get_socicons()
+{
+	// scrape list of icons from socicon css
+	if( false === ( $icons  = get_transient( 'vp_socicons' ) ) )
+	{
+		$pattern = '/\.(socicon-(?:\w+(?:-)?)+):before\s*{\s*content/';
+		$subject = file_get_contents(VP_DIR . '/public/css/vendor/socicon.css');
+
+		preg_match_all($pattern, $subject, $matches, PREG_SET_ORDER);
+
+		$icons = array();
+
+		foreach($matches as $match)
+		{
+		    $icons[] = array('value' => $match[1], 'label' => $match[1]);
+		}
+		set_transient( 'vp_socicons', $icons, 60 * 60 * 24 );
+	}
+
+	return $icons;
+}
+
 VP_Security::instance()->whitelist_function('vp_dep_boolean');
 
 function vp_dep_boolean($value)

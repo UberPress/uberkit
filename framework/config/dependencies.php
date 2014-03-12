@@ -172,6 +172,10 @@ return array(
 				'path' => VP_PUBLIC_URL . '/css/vendor/font-awesome.min.css',
 				'deps' => array(),
 			),
+			'socicon' => array(
+				'path' => VP_PUBLIC_URL . '/css/vendor/socicon.css',
+				'deps' => array(),
+			),
 			'select2' => array(
 				'path' => VP_PUBLIC_URL . '/css/vendor/select2.css',
 				'deps' => array(),
