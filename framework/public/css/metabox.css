@@ -224,20 +224,31 @@
 	display: none;
 }
 /* CHECKIMAGE & RADIOIMAGE */
-.vp-metabox .vp-checkimage .input label,.vp-metabox .vp-radioimage .input label {
+.vp-metabox .vp-checkimage .input label,
+.vp-metabox .vp-radioimage .input label,
+.vp-metabox .vp-radioicon .input label {
 	*display: inline;
 	*zoom: 1;
 	display: inline-block;
 	margin: 5px;
 	vertical-align: top;
 }
-.vp-metabox .vp-checkimage label input,.vp-metabox .vp-radioimage label input {
+.vp-metabox .vp-checkimage label input,
+.vp-metabox .vp-radioimage label input,
+.vp-metabox .vp-radioicon label input {
 	display: none;
 }
 /* elt ie8 style */
-.vp-metabox .vp-checkimage .field input:checked ~ img,.vp-metabox .vp-radioimage .field input:checked ~ img,.vp-metabox .vp-checkimage .field input.checked ~ img,.vp-metabox .vp-radioimage .field input.checked ~ img {
+.vp-metabox .vp-checkimage .field input:checked ~ img,
+.vp-metabox .vp-radioimage .field input:checked ~ img,
+.vp-metabox .vp-checkimage .field input.checked ~ img,
+.vp-metabox .vp-radioimage .field input.checked ~ img {
 	border-color: #278ab7;
 	background-color: #278ab7;
+}
+
+.vp-metabox .vp-radioicon .field input:checked ~ i {
+	color: #278ab7;
 }
 /* COLOR */
 .vp-metabox .vp-color .field input[type="text"] {

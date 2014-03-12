@@ -604,6 +604,17 @@ vp.binding_action =	function(ids, field, func, thecase) {
 					}
 					vp.init_tipsy();
 					break;
+				case 'vp-radioicon':
+					if(response.data !== null)
+					{
+						data = response.data instanceof Array ? response.data : [response.data];
+						$source.prop('checked', false).change();
+						jQuery.each(data, function(key, value) {
+							$source.filter('[value="'+ value +'"]').prop('checked', true).change();
+						});
+					}
+					vp.init_tipsy();
+					break;
 				case 'vp-html':
 					if(response.data !== null)
 					{
@@ -622,7 +633,7 @@ vp.binding_action =	function(ids, field, func, thecase) {
 
 vp.binding_event = function(ids, idx, field, func, parent, thecase)
 {
-	var change    = ['vp-select', 'vp-checkbox', 'vp-checkimage', 'vp-radiobutton', 'vp-radioimage', 'vp-multiselect', 'vp-toggle', 'vp-upload'],
+	var change    = ['vp-select', 'vp-checkbox', 'vp-checkimage', 'vp-radiobutton', 'vp-radioimage', 'vp-radioicon', 'vp-multiselect', 'vp-toggle', 'vp-upload'],
 	    typing    = ['vp-textbox', 'vp-slider', 'vp-color', 'vp-date'],
 	    name      = vp.thejqname(ids[idx], thecase),
 	    dest_type = jQuery(vp.thejqid(ids[idx], thecase)).attr('data-vp-type');
@@ -730,6 +741,15 @@ vp.items_binding_action =	function(ids, field, func, thecase) {
 					});
 					vp.init_tipsy();
 					break;
+				case 'vp-radioicon':
+					$source = $input;
+					$source.empty();
+					$source = jQuery(vp.jqid(field.source)).find('.input');
+					response.data !== null && jQuery.each(response.data, function(key, value) {
+						$source.append(jQuery('<label><input class="vp-input" type="radio" name="' + field.source + '" value="' + value.value + '"><i class="socicon ' + value.img + ' vp-js-tipsy image-item" alt="' + value.label + '" style="" original-title="' + value.value + '"></label>'));
+					});
+					vp.init_tipsy();
+					break;
 			}
 			jQuery('[name="' + field.source + '"]:first').change().blur();
 		}
@@ -738,7 +758,7 @@ vp.items_binding_action =	function(ids, field, func, thecase) {
 
 vp.items_binding_event = function(ids, idx, field, func, parent, thecase)
 {
-	var change    = ['vp-select', 'vp-checkbox', 'vp-checkimage', 'vp-radiobutton', 'vp-radioimage', 'vp-multiselect', 'vp-toggle', 'vp-upload'],
+	var change    = ['vp-select', 'vp-checkbox', 'vp-checkimage', 'vp-radiobutton', 'vp-radioimage', 'vp-radioicon', 'vp-multiselect', 'vp-toggle', 'vp-upload'],
 	    typing    = ['vp-textbox', 'vp-slider', 'vp-color', 'vp-date'],
 	    name      = vp.thejqname(ids[idx], thecase),
 	    dest_type = jQuery(vp.thejqid(ids[idx], thecase)).attr('data-vp-type');
@@ -816,7 +836,7 @@ vp.dependency_action =	function(ids, field, func) {
 
 vp.dependency_event = function(ids, idx, field, func, parent){
 
-	var change    = ['vp-select', 'vp-checkbox', 'vp-checkimage', 'vp-radiobutton', 'vp-radioimage', 'vp-multiselect', 'vp-toggle', 'vp-upload'],
+	var change    = ['vp-select', 'vp-checkbox', 'vp-checkimage', 'vp-radiobutton', 'vp-radioimage', 'vp-radioicon', 'vp-multiselect', 'vp-toggle', 'vp-upload'],
 	    typing    = ['vp-textbox', 'vp-slider', 'vp-color', 'vp-date'],
 	    name      = vp.thejqname(ids[idx], 'option'),
 	    dest_type = jQuery(vp.thejqid(ids[idx], 'option')).attr('data-vp-type');
@@ -1164,6 +1184,7 @@ vp.init_tipsy = function()
 		jQuery('.vp-js-tipsy.description').tipsy({ live: true, gravity : 'e' });
 		jQuery('.vp-js-tipsy.slideinput').tipsy({ live: true, trigger : 'focus' });
 		jQuery('.vp-js-tipsy.image-item').tipsy({ live: true });
+		jQuery('.vp-js-tipsy.icon-item').tipsy({ live: true });
 	}
 };
 vp.init_tipsy();

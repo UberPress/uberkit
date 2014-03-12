@@ -175,6 +175,7 @@
 	// image controls event bind
 	vp.custom_check_radio_event(".vp-metabox", ".vp-field.vp-checkimage .field .input label");
 	vp.custom_check_radio_event(".vp-metabox", ".vp-field.vp-radioimage .field .input label");
+	vp.custom_check_radio_event(".vp-metabox", ".vp-field.vp-radioicon .field .input label");
 
 	// Bind event to WP publish button to process metabox validation
 	$('#post').on( 'submit', function(e){

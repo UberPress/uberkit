@@ -93,12 +93,12 @@ class encore {
  * @since 0.1
  */
 
-function encore_get_option( $key, $name ) {
-	return vp_option( $key . '.' . $name );
+function encore_get_option($key, $name = null) {
+	return vp_option( ($name) ? $key . '.' . $name : $key);
 }
 
-function encore_option( $key, $name ) {
-	return encore_get_option( $key . '.' . $name );
+function encore_option($key, $name = null) {
+	return encore_get_option($key, $name);
 }
 
 
