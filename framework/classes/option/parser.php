@@ -11,7 +11,7 @@ class VP_Option_Parser
 		if(empty($arr['title']))
 			$arr['title'] = 'encore';
 		if(empty($arr['logo']))
-			$arr['logo']  = 'encore-logo.png';
+			$arr['logo']  = 'logo.png';
 
 		$set->set_title(isset($arr['title']) ? $arr['title'] : '')
 		    ->set_logo(isset($arr['logo']) ? $arr['logo'] : '');

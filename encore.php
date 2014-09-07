@@ -2,11 +2,11 @@
 
 /**
  *
- * Plugin Name: 	encore Framework
+ * Plugin Name: 	encore
  * Plugin URI: 		-
  *
  * Description: 	Option and Metabox Framework 
- * Version: 		0.2.0
+ * Version: 		0.3.0
  *
  * Author:			ANEX
  * Author URI: 		http://anex.at
@@ -22,27 +22,16 @@
  * Setup Contants
  */
 
-defined( 'VP_PLUGIN_VERSION' ) or define( 'VP_PLUGIN_VERSION', '0.2.0' );
-defined( 'VP_PLUGIN_URL' )     or define( 'VP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-defined( 'VP_PLUGIN_DIR' )     or define( 'VP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-defined( 'VP_PLUGIN_FILE' )    or define( 'VP_PLUGIN_FILE', __FILE__ );
-
 defined( 'ENCORE_PLUGIN_VERSION' ) or define( 'ENCORE_PLUGIN_VERSION', '0.2.0' );
 defined( 'ENCORE_PLUGIN_URL' )     or define( 'ENCORE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 defined( 'ENCORE_PLUGIN_DIR' )     or define( 'ENCORE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 defined( 'ENCORE_PLUGIN_FILE' )    or define( 'ENCORE_PLUGIN_FILE', __FILE__ );
 
-
-
-/**
- * Load Languages
- */
-
-//add_action('plugins_loaded', 'encore_load_textdomain');
-//
-//function encore_load_textdomain() {
-//	load_plugin_textdomain( 'encore', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' ); 
-//}
+// depreceated
+defined( 'VP_PLUGIN_VERSION' ) or define( 'VP_PLUGIN_VERSION', '0.2.0' );
+defined( 'VP_PLUGIN_URL' )     or define( 'VP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+defined( 'VP_PLUGIN_DIR' )     or define( 'VP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+defined( 'VP_PLUGIN_FILE' )    or define( 'VP_PLUGIN_FILE', __FILE__ );
 
 
 
@@ -101,6 +90,22 @@ function encore_option($key, $name = null) {
 	return encore_get_option($key, $name);
 }
 
+function encore_meta( $key, $subkey = null ) {
+
+	$meta = get_post_meta( get_the_ID(), $key ,true);
+	
+	if( $subkey ) {
+		if( is_array( $meta ) && isset( $meta[$subkey] ) ) {
+			return $meta[$subkey];
+		} else {
+			return;
+		}
+	} else {
+		return $meta;
+	}
+
+	
+}
 
 // this is a PHP 5.3+ function. should be more efficient than creating
 // empty sub classes

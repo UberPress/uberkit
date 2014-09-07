@@ -16,7 +16,7 @@ require_once 'autoload.php';
 //////////////////////////
 // Load Languages       //
 //////////////////////////
-load_theme_textdomain('encore', VP_DIR . '/lang');
+//load_theme_textdomain('encore', VP_DIR . '/lang');
 
 //////////////////////////
 // Setup FileSystem     //
