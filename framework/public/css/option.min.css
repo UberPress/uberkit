@@ -33,12 +33,11 @@
 	background-color: #fff;
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 	box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-	border-radius: 3px;
 	border: 1px solid #ddd;
 	color: #666;
 	display: table;
 	height: auto;
-	margin-top: 15px;
+	margin-top: 20px;
 	min-height: 100%;
 	min-width: 680px;
 	position: relative;
@@ -486,13 +485,17 @@
 .vp-wrap .vp-field .field input[type="radio"] {
 	display: none
 }
-
+/*
 .vp-wrap .vp-textbox .field input[type="text"],
 .vp-wrap .vp-slider .field input[type="text"],
 .vp-wrap .vp-upload .field input[type="text"],
 .vp-wrap .vp-date .field input[type="text"],
 .vp-wrap .vp-textarea .field textarea,
 .vp-wrap .vp-color .field input[type="text"] {
+*/
+
+.vp-wrap .field input[type="text"],
+.vp-wrap .field input[type="number"] {
 	margin: 0;
 	padding: 10px;
 	border: 1px solid #DDD;
@@ -501,8 +504,11 @@
 	box-shadow: none;
 }
 
-.vp-wrap .vp-textbox .field input[type="text"],
+/*.vp-wrap .vp-textbox .field input[type="text"],
 .vp-wrap .vp-upload .field input[type="text"],
+*/
+.vp-wrap .field input[type="text"],
+.vp-wrap .field input[type="number"],
 .vp-wrap .vp-textarea .field textarea {
 	width: 100%
 }
