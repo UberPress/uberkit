@@ -133,37 +133,121 @@ function vp_get_gwf_style($face)
 }
 
 function vp_get_social_medias() {
+	
 	$socmeds = array(
-		array('value' => 'blogger', 'label' => 'Blogger'),
-		array('value' => 'delicious', 'label' => 'Delicious'),
-		array('value' => 'deviantart', 'label' => 'DeviantArt'),
-		array('value' => 'digg', 'label' => 'Digg'),
-		array('value' => 'dribbble', 'label' => 'Dribbble'),
-		array('value' => 'email', 'label' => 'Email'),
-		array('value' => 'facebook', 'label' => 'Facebook'),
-		array('value' => 'flickr', 'label' => 'Flickr'),
-		array('value' => 'forrst', 'label' => 'Forrst'),
-		array('value' => 'foursquare', 'label' => 'Foursquare'),
-		array('value' => 'github', 'label' => 'Github'),
-		array('value' => 'googleplus', 'label' => 'Google+'),
-		array('value' => 'instagram', 'label' => 'Instagram'),
-		array('value' => 'lastfm', 'label' => 'Last.FM'),
-		array('value' => 'linkedin', 'label' => 'LinkedIn'),
-		array('value' => 'myspace', 'label' => 'MySpace'),
-		array('value' => 'pinterest', 'label' => 'Pinterest'),
-		array('value' => 'reddit', 'label' => 'Reddit'),
-		array('value' => 'rss', 'label' => 'RSS'),
-		array('value' => 'soundcloud', 'label' => 'SoundCloud'),
-		array('value' => 'stumbleupon', 'label' => 'StumbleUpon'),
-		array('value' => 'tumblr', 'label' => 'Tumblr'),
-		array('value' => 'twitter', 'label' => 'Twitter'),
-		array('value' => 'vimeo', 'label' => 'Vimeo'),
-		array('value' => 'wordpress', 'label' => 'WordPress'),
-		array('value' => 'yahoo', 'label' => 'Yahoo!'),
-		array('value' => 'youtube', 'label' => 'Youtube'),
+	
+		array(
+			'value' => 'blogger', 
+			'label' => 'Blogger'
+		),
+		array(
+			'value' => 'delicious',
+			'label' => 'Delicious'
+		),
+		array(
+			'value' => 'deviantart',
+			'label' => 'DeviantArt
+		'),
+		array(
+			'value' => 'digg',
+			'label' => 'Digg'
+		),
+		array(
+			'value' => 'dribbble',
+			'label' => 'Dribbble'
+		),
+		array(
+			'value' => 'email',
+			'label' => 'Email'
+		),
+		array(
+			'value' => 'facebook',
+			'label' => 'Facebook'
+		),
+		array(
+			'value' => 'flickr',
+			'label' => 'Flickr'
+		),
+		array(
+			'value' => 'forrst',
+			'label' => 'Forrst'
+		),
+		array(
+			'value' => 'foursquare',
+			'label' => 'Foursquare'
+		),
+		array(
+			'value' => 'github',
+			'label' => 'Github'
+		),
+		array(
+			'value' => 'googleplus',
+			'label' => 'Google+'
+		),
+		array(
+			'value' => 'instagram',
+			'label' => 'Instagram'
+		),
+		array(
+			'value' => 'lastfm',
+			'label' => 'Last.FM'
+		),
+		array(
+			'value' => 'linkedin',
+			'label' => 'LinkedIn'
+		),
+		array(
+			'value' => 'myspace',
+			'label' => 'MySpace'
+		),
+		array(
+			'value' => 'pinterest',
+			'label' => 'Pinterest'
+		),
+		array(
+			'value' => 'reddit',
+			'label' => 'Reddit'
+		),
+		array(
+			'value' => 'rss',
+			'label' => 'RSS
+		'),
+		array(
+			'value' => 'soundcloud',
+			'label' => 'SoundCloud'
+		),
+		array(
+			'value' => 'stumbleupon',
+			'label' => 'StumbleUpon
+		'),
+		array(
+			'value' => 'tumblr',
+			'label' => 'Tumblr'
+		),
+		array(
+			'value' => 'twitter',
+			'label' => 'Twitter'
+		),
+		array(
+			'value' => 'vimeo',
+			'label' => 'Vimeo'
+		),
+		array(
+			'value' => 'wordpress',
+			'label' => 'WordPress'
+		),
+		array(
+			'value' => 'yahoo',
+			'label' => 'Yahoo!'
+		),
+		array(
+			'value' => 'youtube',
+			'label' => 'Youtube'
+		),
 	);
 
 	return $socmeds;
+	
 }
 
 function vp_get_fontawesome_icons()
@@ -210,7 +294,21 @@ function vp_get_socicons()
 	return $icons;
 }
 
+VP_Security::instance()->whitelist_function('uk_dep_boolean');
 VP_Security::instance()->whitelist_function('vp_dep_boolean');
+
+function uk_dep_boolean( $value ) {
+	
+	$args   = func_get_args();
+	$result = true;
+
+	foreach ( $args as $val ) {
+		$result = ( $result and !empty( $val ) );
+	}
+	
+	return $result;
+	
+}
 
 function vp_dep_boolean($value)
 {
@@ -224,7 +322,14 @@ function vp_dep_boolean($value)
 	return $result;
 }
 
+VP_Security::instance()->whitelist_function('uk_dep_boolean_false');
 VP_Security::instance()->whitelist_function('vp_dep_boolean_false');
+
+function uk_dep_boolean_false( $value ) {
+	
+	return !uk_dep_boolean( $value );
+	
+}
 
 function vp_dep_boolean_false($value)
 {
