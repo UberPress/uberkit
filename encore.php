@@ -6,7 +6,7 @@
  * Plugin URI: 		-
  *
  * Description: 	Option and Metabox Framework 
- * Version: 		0.3.0
+ * Version: 		0.4.0
  *
  * Author:			ANEX
  * Author URI: 		http://anex.at
