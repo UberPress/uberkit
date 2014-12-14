@@ -551,3 +551,29 @@
 .select2-results .select2-highlighted {
 	background: #278ab7;
 }
+
+
+.vp-toggle .field label {
+*display:inline;
+*zoom:1;
+	display: inline-block
+}
+
+.vp-toggle .field span {
+	display: block;
+	background-image: url('../img/ui-sprite.png');
+	background-position: 0 -40px;
+	width: 60px;
+	height: 30px;
+	margin-top: -2px
+}
+
+.vp-toggle .field input:checked ~ span {
+	background-position: -60px -40px
+}
+
+.vp-toggle .field input.checked ~ span {
+	background-position: -60px -40px
+}
+
+.vp-toggle input {display: none;}
