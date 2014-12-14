@@ -79,20 +79,25 @@ class encore {
 /**
  * Wrapper Function
  *
- * @since 0.1
+ * @since 0.1.0
  */
 
-function encore_get_option($key, $name = null) {
-	return vp_option( ($name) ? $key . '.' . $name : $key);
+function encore_get_option($key, $name = null, $default = null) {
+        $val = vp_option(($name ? ($key . '.' . $name) : $key));
+        
+        return $val ? $val : $default;
 }
 
-function encore_option($key, $name = null) {
-	return encore_get_option($key, $name);
+function encore_option($key, $name = null, $default = null) {
+	return encore_get_option($key, $name, $default);
 }
 
-function encore_meta( $key, $subkey = null ) {
+function encore_meta( $key, $subkey = null, $id = null ) {
 
-	$meta = get_post_meta( get_the_ID(), $key ,true);
+	if( !$id )
+		$id = get_the_ID();
+
+	$meta = get_post_meta( $id, $key ,true);
 	
 	if( $subkey ) {
 		if( is_array( $meta ) && isset( $meta[$subkey] ) ) {
@@ -106,6 +111,8 @@ function encore_meta( $key, $subkey = null ) {
 
 	
 }
+
+require __DIR__ . '/taxmeta/Tax-meta-class.php';
 
 // this is a PHP 5.3+ function. should be more efficient than creating
 // empty sub classes
