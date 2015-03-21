@@ -563,7 +563,7 @@
 *display:inline;
 *zoom:1;
 	display: inline-block;
-	margin: 5px;
+	margin: 0 10px 10px 0;
 	vertical-align: top
 }
 
@@ -696,11 +696,53 @@
 
 .vp-wrap .vp-sorter .field .input li.ui-state-highlight,
 .vp-wrap .vp-sorter .field .input li.select2-search-choice {
+    height: auto;
+    padding: 10px 10px 10px 30px;
+    margin: 3px 5px;
+    
+    float: none;
 	display: block;
-	float: none;
-	margin: 3px 5px;
-	height: 21px
+
+    margin: 0;
+    line-height: 20px;
+    
+    border: none;
+    border-bottom: 1px solid #DDD;  
+      
+    background: #f9f9f9;
+
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+    		border-radius: 0;
+    
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+    		box-shadow: none;
+
 }
+
+.vp-wrap .vp-sorter .field .input li.select2-search-choice a.select2-search-choice-close {
+    display: block;
+    width: 12px;
+    height: 13px;
+    position: absolute;
+    top: 14px;
+    left: auto !important;
+    right: 10px;
+    font-size: 1px;
+    outline: none;
+}
+
+.vp-wrap .vp-sorter .field .input li.select2-search-field {
+    width: 100%;
+}
+
+.vp-wrap .vp-sorter .field .input li.select2-search-field .select2-input {
+    width: 100% !important;
+    border: none;
+}
+
+
 
 .vp-wrap .vp-sorter .field .input ul,
 .vp-wrap .vp-multiselect .field .input ul {
