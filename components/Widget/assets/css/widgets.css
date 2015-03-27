@@ -1,8 +1,14 @@
-/*----- Widget Description -----*/
+/*
+ * ##################################################
+ * DEFAULT STYLES ###################################
+ * ##################################################
+ */
+ 
 .widget-inside .widget-content {
     padding: 20px 0;
 }
 
+/* ----- Widget Description ----- */
 .widget-inside .desc {
     margin: 0 20px 20px;
     color: #666;
@@ -10,7 +16,71 @@
     font-style: italic;
 }
 
-/*----- Accordion -----*/
+/*
+ * ##################################################
+ * CHECKBOX & RADIOBUTTON ###########################
+ * ##################################################
+ */
+ 
+.uk-widget-settings input[type=checkbox] {
+    display: none;
+}
+
+.uk-widget-settings input[type=checkbox] + label {
+    position: relative
+}
+
+.uk-widget-settings input[type=checkbox] + label:before {
+    content: '';
+    
+    width: 18px;
+    height: 18px;
+    
+    margin-top: -2px;
+    margin-right: 10px;
+    
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+
+    border: 1px solid #CCC;
+    background: none;
+    
+    -webkit-transition: border-color .1s linear;
+       -moz-transition: border-color .1s linear;
+            transition: border-color .1s linear;
+}
+
+.uk-widget-settings input[type=checkbox]:checked + label:before {
+    border: 1px solid #323232;
+}
+
+.uk-widget-settings input[type=checkbox]:checked + label:after {
+    content: '\f00c';
+    
+    width: 14px;
+    height: 14px;
+    margin: 1px 2px;
+    
+    display: block;
+    
+    position: absolute;
+    top: 0;
+
+    color: #555;
+    font-size: 11px;
+    font-family: 'FontAwesome';
+    line-height: 16px;
+    text-align: center;
+}
+
+
+/*
+ * ##################################################
+ * ACCORDION ########################################
+ * ##################################################
+ */
+ 
 .uk-widget-settings-accordion,
 .uk-widget-settings-accordion * {
     -webkit-box-sizing: border-box; 
@@ -42,6 +112,7 @@
             transition: all linear .1s;
     
 }
+
 .uk-widget-settings-accordion-trigger-active {
     color: #333;
     font-weight: 300;
