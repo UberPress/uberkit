@@ -32,7 +32,7 @@ class VP_Metabox extends WPAlchemy_MetaBox
 		// Modify title in dev mode
 		if( $this->is_dev_mode )
 		{
-			$this->title = __('[Development Mode] ', 'vp_textdomain') . $this->title;
+			$this->title = __('[Development Mode] ', 'uberkit') . $this->title;
 		}
 
 		if ($this->can_output() and VP_WP_Admin::is_post_or_page() )
@@ -500,9 +500,14 @@ class VP_Metabox extends WPAlchemy_MetaBox
 				. VP_Util_Text::return_if_exists(isset($dependency) ? $dependency : '', 'data-vp-dependency="%s"')
 				. '>';
 
+
 		$icon = '';
+		
 		if(isset($group['sortable']) and $group['sortable'])
-			$icon = '<i class="fa fa-move"></i> ';
+			$icon = '<i class="fa fa-bars"></i> ';
+			
+		if( $group['title_field'] )
+			$group['title'] = uk_meta( '_kolarik_listings_links', $group['title_field'], get_the_ID() );
 
 		foreach ($group['groups'] as $g)
 		{
@@ -511,7 +516,7 @@ class VP_Metabox extends WPAlchemy_MetaBox
 
 			$html .= '<div id="'. $g['name'] .'" class="vp-wpa-group wpa_group wpa_group-' . $name . '">';
 			$html .= '<div class="vp-wpa-group-heading"><a href="#" class="vp-wpa-group-title">' . $icon . $group['title'] . '</a></div>';
-			$html .= '<div class="vp-controls' . ((!$is_first) ? ' vp-hide' : '') . '">';
+			$html .= '<div class="vp-controls' . ((!$is_first) ? '' : ' vp-hide') . '">';
 
 			foreach ($g['childs'] as $f)
 			{
@@ -546,22 +551,49 @@ class VP_Metabox extends WPAlchemy_MetaBox
 				. (isset($group['container_extra_classes']) ? (' ' . implode(' ', $group['container_extra_classes'])) : '')
 				. '"'
 				. VP_Util_Text::return_if_exists(isset($dependency) ? $dependency : '', 'data-vp-dependency="%s"')
-				. '>';
+				. ' data-title="' . $group['title_field']. '">';
 
 		$icon = '';
+		
 		if(isset($group['sortable']) and $group['sortable'])
-			$icon = '<i class="fa fa-move"></i> ';
-
+			$icon = '<i class="fa fa-bars"></i> ';
+			
 		foreach ($group['groups'] as $g)
 		{
+
 			$class    = '';
 			$is_first = false;
 			$is_last  = false;
 			if ($g === end($group['groups'])){ $is_last = true; $class = ' last tocopy';}
 			if ($g === reset($group['groups'])){ $is_first = true; $class = ' first';}
-
+			
+			// hack to display a specified custom field as title/handle (added by jh)
+//			if( isset( $group['title_field'] ) ) {
+//				
+//				$gdata	= $g['name'];
+//				
+//				$gdata = str_replace( '[', ' ', $gdata );
+//				$gdata = str_replace( ']', '', $gdata );
+//				$gdata = explode( ' ', $gdata );
+//
+//				$id = $this->id;
+//				
+//				// get meta
+//				$meta = uk_meta( $id, $name );
+//				
+//				// set title
+//				$title = $meta[$gdata[2]][$group['title_field']];
+//				
+//				if( empty( $title ) )
+//					$title = $group['title'];
+//				
+//			} else {
+//				$title = $group['title'];
+//			}
+			// end_hack
+			
 			$html .= '<div id="'. $g['name'] .'" class="vp-wpa-group wpa_group wpa_group-' . $name . $class . '">';
-			$html .= '<div class="vp-wpa-group-heading"><a href="#" class="vp-wpa-group-title">' . $icon . $group['title'] . '</a><a href="#" class="dodelete vp-wpa-group-remove" title="'. __('Remove', 'vp_textdomain') .'"><i class="fa fa-times"></i> '. __('Remove', 'vp_textdomain') .'</a></div>';
+			$html .= '<div class="vp-wpa-group-heading"><a href="#" class="vp-wpa-group-title" >' . $icon . $group['title'] . '</a><a href="#" class="dodelete vp-wpa-group-remove" title="'. __('Remove', 'vp_textdomain') .'"><i class="fa fa-times"></i></a></div>';
 			$html .= '<div class="vp-controls' . ((!$is_first) ? ' vp-hide' : '') . '">';
 			if ($g === end($group['groups']))
 			{
@@ -580,10 +612,11 @@ class VP_Metabox extends WPAlchemy_MetaBox
 			}
 			$html .= '</div>';
 			$html .= '</div>';
+			
 		}
 
 		$html .= '<div class="vp-wpa-group-add">';
-		$html .= '<a href="#" class="button button-large docopy-' . $name . '">'. __('Add More', 'vp_textdomain') . ' ' . $group['title'] . '</a>';
+		$html .= '<a href="#" class="button button-primary button-large docopy-' . $name . '"><i class="fa fa-plus-circle"></i> '. __('Add More', 'vp_textdomain') . '</a>';
 		$html .= '</div>';
 
 		$html .= '</div>';

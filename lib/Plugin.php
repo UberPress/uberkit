@@ -23,9 +23,16 @@ class Plugin
         $c = get_called_class();
 
         if (!isset(self::$_instances[$c]))
-            self::$_instances[$c] = new $c;
-            
+        {
+            self::$_instances[$c] = $instance = new $c;
+            $instance->_init();
+        }
+
         return self::$_instances[$c];
+    }
+
+    protected function _init()
+    {
     }
 
     protected function _getReflectionClass()

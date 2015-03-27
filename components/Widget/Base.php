@@ -26,8 +26,8 @@ class Base
             
             $assetsUrl = $this->_baseUrl . 'assets/';
 
-            wp_enqueue_style( 'uk-admin-widgets', $assetsUrl . 'css/widgets.css', false, '0.5.0' );
-            wp_enqueue_script( 'uk-admin-widgets', $assetsUrl . 'js/widgets.js', array( 'jquery' ), '0.5.0', false );
+            wp_enqueue_style( 'uk-admin-widgets', $assetsUrl . 'css/widgets.css', false, '0.6.0' );
+            wp_enqueue_script( 'uk-admin-widgets', $assetsUrl . 'js/widgets.js', array( 'jquery' ), '0.6.0', false );
             
         }
     }

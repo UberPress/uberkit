@@ -1,12 +1,25 @@
-<?php if(!$is_compact) echo VP_View::instance()->load('control/template_control_head', $head_info); ?>
+<?php 
 
-<input class="vp-input" type="text" readonly id="<?php echo $name; ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>" />
+if( !$is_compact )
+	echo UK_View::instance()->load( 'control/template_control_head', $head_info );
+	
+?>
+
+
+<input class="uk-input vp-input" type="text" id="<?php echo $name ?>" name="<?php echo $name ?>" value="<?php echo $value ?>" readonly />
+
 <div class="buttons">
-	<input class="vp-js-upload vp-button button" type="button" value="<?php _e('Choose File', 'vp_textdomain'); ?>" />
-	<input class="vp-js-remove-upload vp-button button" type="button" value="x" />
-</div>
-<div class="image">
-	<img src="<?php echo $preview; ?>" alt="" />
+	<input class="uk-js-upload uk-button vp-js-upload vp-button button" type="button" value="<?php _e( 'Choose a File', 'uberkit' ); ?>" />
+	<input class="uk-js-remove-upload uk-button vp-js-remove-upload vp-button button" type="button" value="x" />
 </div>
 
-<?php if(!$is_compact) echo VP_View::instance()->load('control/template_control_foot'); ?>
+<div class="image">
+	<img src="<?php echo $preview ?>" alt="" />
+</div>
+
+<?php 
+
+if( !$is_compact ) 
+	echo UK_View::instance()->load( 'control/template_control_foot' );
+
+?>
