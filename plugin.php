@@ -6,7 +6,7 @@
  * Plugin URI: 				http://uberkit.io
  *
  * Description: 			WordPress Framework 
- * Version: 				0.6.0
+ * Version: 				0.7.0
  *
  * Author:					UberPress
  * Author URI: 				http://uberpress.io
@@ -29,7 +29,7 @@ class UberKit extends UK\Plugin
 
     const NS = 'UK';
 
-    protected function __construct()
+    protected function _init()
     {
         $this->_setupLoader();
 

@@ -29,17 +29,17 @@ class VP_Metabox_Depsloader
 			'use_new_media_upload' => false,
 			'main_js'              => array(
 				'name' => 'vp-metabox',
-				'path' => VP_PUBLIC_URL . '/js/metabox.min.js'
+				'path' => UK_PUBLIC_URL . '/js/metabox.min.js'
 			),
 			'main_css'             => array(
 				'name' => 'vp-metabox',
-				'path' => VP_PUBLIC_URL . '/css/metabox.min.css'
+				'path' => UK_PUBLIC_URL . '/css/metabox.min.css'
 			),
 		);
 
-		$script_always = VP_Util_Config::instance()->load('dependencies', 'scripts.always');
-		$style_always  = VP_Util_Config::instance()->load('dependencies', 'styles.always');
-		$messages      = VP_Util_Config::instance()->load('messages');
+		$script_always = UK_Util_Config::instance()->load('dependencies', 'scripts.always');
+		$style_always  = UK_Util_Config::instance()->load('dependencies', 'styles.always');
+		$messages      = UK_Util_Config::instance()->load('messages');
 
 		$result['localize']['val_msg'] = $messages['validation'];
 
@@ -52,7 +52,7 @@ class VP_Metabox_Depsloader
 				{
 					function inner_build($fields, &$result)
 					{
-						$rules = VP_Util_Config::instance()->load('dependencies', 'rules');
+						$rules = UK_Util_Config::instance()->load('dependencies', 'rules');
 						foreach ($fields as $field)
 						{
 							if($field['type'] == 'group')

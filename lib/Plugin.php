@@ -31,6 +31,11 @@ class Plugin
         return self::$_instances[$c];
     }
 
+    public static function getInstance()
+    {
+        return self::instance();
+    }
+
     protected function _init()
     {
     }
@@ -87,7 +92,7 @@ class Plugin
         return $this->_optionKey;
     }
 
-    public function getOption($key, $default = null)
+    public function getOption($key = null, $default = null)
     {
         $prefix = $this->getOptionKey();
         return encore_get_option($prefix, $key, $default);

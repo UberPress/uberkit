@@ -119,8 +119,10 @@ class VP_Metabox extends WPAlchemy_MetaBox
 			$this->_enbind($fields);
 			$fields = $this->_endep($fields);
 
-			echo '<div class="vp-metabox">';
-			$this->_enview($fields);
+			echo '<div class="uk-wrap">';
+				echo '<div class="vp-metabox uk-metabox">';
+				$this->_enview($fields);
+				echo '</div>';
 			echo '</div>';
 		}
 	 
@@ -593,7 +595,7 @@ class VP_Metabox extends WPAlchemy_MetaBox
 			// end_hack
 			
 			$html .= '<div id="'. $g['name'] .'" class="vp-wpa-group wpa_group wpa_group-' . $name . $class . '">';
-			$html .= '<div class="vp-wpa-group-heading"><a href="#" class="vp-wpa-group-title" >' . $icon . $group['title'] . '</a><a href="#" class="dodelete vp-wpa-group-remove" title="'. __('Remove', 'vp_textdomain') .'"><i class="fa fa-times"></i></a></div>';
+			$html .= '<div class="vp-wpa-group-heading"><span class="vp-wpa-group-title" >' . $icon . $group['title'] . '</span><a href="#" class="dodelete vp-wpa-group-remove" title="'. __('Remove', 'vp_textdomain') .'"><i class="fa fa-times"></i></a></div>';
 			$html .= '<div class="vp-controls' . ((!$is_first) ? ' vp-hide' : '') . '">';
 			if ($g === end($group['groups']))
 			{

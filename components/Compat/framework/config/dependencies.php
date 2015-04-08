@@ -9,7 +9,7 @@ return array(
 	/**
 	 * jQuery UI Theme
 	 */
-	'jqui_theme' => ($jqui_theme = 'smoothness'),
+	'jqui_theme' => ($jqui_theme = 'flick'),
 
 	/**
 	 * Scripts.
@@ -24,9 +24,9 @@ return array(
 				'override' => false,
 			),
 			'bootstrap-colorpicker' => array(
-				'path'     => VP_PUBLIC_URL . '/js/vendor/bootstrap-colorpicker.js',
+				'path'     => '//cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.1.0/js/bootstrap-colorpicker.min.js',
 				'deps'     => array('jquery'),
-				'ver'      => false,
+				'ver'      => '2.1.0',
 			),
 			'tipsy' => array(
 				'path'     => VP_PUBLIC_URL . '/js/vendor/jquery.tipsy.js',
@@ -157,7 +157,7 @@ return array(
 		'always' => array('tipsy', 'font-awesome', 'socicon'),
 		'paths' => array(
 			'bootstrap-colorpicker' => array(
-				'path' => VP_PUBLIC_URL . '/css/vendor/bootstrap-colorpicker.css',
+				'path' => '//cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.1.0/css/bootstrap-colorpicker.min.css',
 				'deps' => array(),
 			),
 			'tipsy' => array(
@@ -170,7 +170,7 @@ return array(
 				'deps' => array(),
 			),
 			'font-awesome' => array(
-				'path' => VP_PUBLIC_URL . '/css/vendor/font-awesome.min.css',
+				'path' => '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css',
 				'deps' => array(),
 			),
 			'socicon' => array(
@@ -185,16 +185,20 @@ return array(
 				'path' => VP_PUBLIC_URL . '/css/vendor/reveal.css',
 				'deps' => array(),
 			),
+			'uk-core' => array(
+				'path' => VP_PUBLIC_URL . '/css/core.css',
+				'deps' => array(),
+			),
 			'vp-option' => array(
-				'path' => VP_PUBLIC_URL . '/css/option.min.css',
+				'path' => VP_PUBLIC_URL . '/css/option.css',
 				'deps' => array(),
 			),
 			'vp-metabox' => array(
-				'path' => VP_PUBLIC_URL . '/css/metabox.min.css',
+				'path' => VP_PUBLIC_URL . '/css/metabox.css',
 				'deps' => array(),
 			),
 			'vp-shortcode' => array(
-				'path' => VP_PUBLIC_URL . '/css/shortcode.min.css',
+				'path' => VP_PUBLIC_URL . '/css/shortcode.css',
 				'deps' => array('reveal'),
 			),
 		),

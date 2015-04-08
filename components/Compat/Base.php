@@ -36,6 +36,7 @@ class Base
         class_alias( 'VP_ShortcodeGenerator', 'UK_ShortcodeGenerator' );
        
 	    class_alias( 'VP_View', 'UK_View' );
+	    class_alias( 'VP_Util_Config', 'UK_Util_Config' );
 
         class_alias( 'VP_Option',  'Encore_Option' );
         class_alias( 'VP_Metabox', 'Encore_Metabox' );

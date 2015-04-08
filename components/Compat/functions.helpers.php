@@ -156,27 +156,32 @@ function uk_options_build_array( $data ) {
 
 /**
  *
- * uk_sort_array_by_array()
+ * Sort an array by another array
  * This function sorts an array based on another array.
  * 
  * @since	0.5.0
  * 
  */
-
-function uk_sort_array_by_array( $array, $orderArray ) {
-    
-	// create empty array
-	$ordered = array();
+ 
+if( ! function_exists( 'sort_array_by_array' ) ) {
 	
-	// loop through arrays
-    foreach( $orderArray as $key )
-        if( isset( $array[$key] ) )
-            $ordered[$key] = $array[$key];
-	
-	// return ordered array
-    return $ordered;
+	function sort_array_by_array( $array, $orderArray ) {
+		
+		// create empty array
+		$ordered = array();
+		
+		// loop through arrays
+		foreach( $orderArray as $key )
+			if( isset( $array[$key] ) )
+				$ordered[$key] = $array[$key];
+		
+		// return ordered array
+		return $ordered;
+		
+	}
 	
 }
+
 
 
 /**
@@ -188,25 +193,135 @@ function uk_sort_array_by_array( $array, $orderArray ) {
  * @see		http://docs.php.net/manual/en/function.array-multisort.php
  */
 
-function uk_sort_array_by_position( $array = array(), $order = SORT_NUMERIC ) {
-
-	if( ! is_array( $array ) )
-		return;
-
-	// Sort array by position
-		
-	$position = array();
+if( ! function_exists( 'sort_array_by_position' ) ) {
 	
-	foreach ( $array as $key => $row ) {
+	function sort_array_by_position( $array = array(), $order = SORT_NUMERIC ) {
+	
+		if( ! is_array( $array ) )
+			return;
+	
+		// Sort array by position
+			
+		$position = array();
 		
-		if( empty( $row['position'] ) )
-			$row['position'] = 1000;
+		foreach ( $array as $key => $row ) {
+			
+			if( empty( $row['position'] ) )
+				$row['position'] = 1000;
+			
+			$position[$key] = $row['position'];
+		}
 		
-		$position[$key] = $row['position'];
+		array_multisort( $position, $order, $array );
+		
+		return $array;
+	
 	}
 	
-	array_multisort( $position, $order, $array );
-	
-	return $array;
+}
 
+
+
+
+/**
+ *
+ * hex2rgba()
+ * Convert HEX to RGBA
+ *
+ * @param	string	$color
+ * @param	string	$opacity
+ *
+ * @since	0.5.0
+ *
+ */
+
+if( ! function_exists( 'hex2rgba' ) ) {
+	
+	function hex2rgba( $color, $opacity = false ) {
+	
+		$default = 'rgb(0,0,0)';
+	
+		//Return default if no color provided
+		if( empty( $color ) )
+			  return; 
+	
+		//Sanitize $color if "#" is provided 
+		if ( $color[0] == '#' ) {
+			$color = substr( $color, 1 );
+		}
+	
+		//Check if color has 6 or 3 characters and get values
+		if (strlen($color) == 6) {
+			$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+		} elseif ( strlen( $color ) == 3 ) {
+			$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+		} else {
+			return $default;
+		}
+	
+		//Convert hexadec to rgb
+		$rgb =  array_map('hexdec', $hex);
+	
+		//Check if opacity is set(rgba or rgb)
+		if( $opacity ){
+			if( abs( $opacity ) > 1)
+				$opacity = 1.0;
+			$output = 'rgba('.implode( ",",$rgb ).','.$opacity.')';
+		} else {
+			$output = 'rgb('.implode( ",",$rgb ).')';
+		}
+	
+		//Return rgb(a) color string
+		return $output;
+		
+	}
+	
+}
+
+
+
+/**
+ *
+ * rgb2rgba()
+ * Convert RGB to RGBA
+ *
+ * @param	string	$color
+ * @param	string	$opacity
+ *
+ * @since	0.5.0
+ *
+ */
+
+if( ! function_exists( 'rgb2rgba' ) ) {
+	
+	function rgb2rgba( $color, $opacity = false ) {
+		
+		$default = 'rgb(0,0,0)';
+	
+		// Abort if no color provided
+		if( empty( $color ) )
+			  return; 
+			  
+		// Sanitize $color if "rgba()" is provided 
+		$color = substr( $color, 4, -1 );
+	
+		// Check if opacity is set(rgba or rgb)
+		if( $opacity ) {
+			
+			if( abs( $opacity ) > 1)
+				$opacity = 1.0;
+				
+			$output = 'rgba(' . $color . ',' . $opacity . ')';
+			
+		} else {
+			
+			$output = 'rgb(' . $color . ')';
+			
+		}
+	
+		// Return rgb(a) color string
+		return $output;
+		
+	}
+	
 }

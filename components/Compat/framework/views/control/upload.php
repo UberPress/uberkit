@@ -9,7 +9,7 @@ if( !$is_compact )
 <input class="uk-input vp-input" type="text" id="<?php echo $name ?>" name="<?php echo $name ?>" value="<?php echo $value ?>" readonly />
 
 <div class="buttons">
-	<input class="uk-js-upload uk-button vp-js-upload vp-button button" type="button" value="<?php _e( 'Choose a File', 'uberkit' ); ?>" />
+	<input class="uk-js-upload uk-button vp-js-upload vp-button button" type="button" value="<?php _e( 'Select a File', 'uberkit' ); ?>" />
 	<input class="uk-js-remove-upload uk-button vp-js-remove-upload vp-button button" type="button" value="x" />
 </div>
 

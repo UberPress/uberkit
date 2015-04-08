@@ -9,7 +9,7 @@ class VP_Option_Parser
 		$set = new VP_Option_Control_Set();
 
 		if(empty($arr['title']))
-			$arr['title'] = 'encore';
+			$arr['title'] = 'UberKit';
 		if(empty($arr['logo']))
 			$arr['logo']  = 'logo.png';
 

@@ -1,6 +1,6 @@
 <div class="wrap">
 	<h2><?php echo $set->get_title(); ?></h2>
-	<div id="vp-wrap" class="vp-wrap">
+	<div id="vp-wrap" class="vp-wrap uk-wrap">
 		<div id="vp-option-panel"class="vp-option-panel <?php echo ($set->get_layout() === 'fixed') ? 'fixed-layout' : 'fluid-layout' ; ?>">
 			<div class="vp-left-panel">
 				<div id="vp-logo" class="vp-logo">
@@ -64,13 +64,13 @@
 			</div>
 			<div class="vp-right-panel">
 				<form id="vp-option-form" class="vp-option-form vp-js-option-form" method="POST">
-					<div id="vp-submit-top" class="vp-submit top">
+					<?php /*?><div id="vp-submit-top" class="vp-submit top">
 						<div class="inner">
 							<input class="vp-save vp-button button button-primary" type="submit" value="<?php _e('Save Changes', 'vp_textdomain'); ?>" />
 							<p class="vp-js-save-loader save-loader" style="display: none;"><img src="<?php VP_Util_Res::img_out('ajax-loader.gif', ''); ?>" /><?php _e('Saving Now', 'vp_textdomain'); ?></p>
 							<p class="vp-js-save-status save-status" style="display: none;"></p>
 						</div>
-					</div>
+					</div><?php */?>
 					<?php foreach ($set->get_menus() as $menu): ?>
 					<?php $menus = $set->get_menus(); ?>
 					<?php if ($menu === reset($menus)): ?>
@@ -81,16 +81,20 @@
 					<?php endforeach; ?>
 					<div id="vp-submit-bottom" class="vp-submit bottom">
 						<div class="inner">
-							<input class="vp-save vp-button button button-primary" type="submit" value="<?php _e('Save Changes', 'vp_textdomain'); ?>" />
-							<p class="vp-js-save-loader save-loader" style="display: none;"><img src="<?php VP_Util_Res::img_out('ajax-loader.gif', ''); ?>" /><?php _e('Saving Now', 'vp_textdomain'); ?></p>
+							<input class="vp-save vp-button button button-primary" type="submit" value="<?php _e( 'Save', 'uberkit' ); ?>" />
+							<div class="vp-js-save-loader save-loader" style="display: none;">
+                                <div class="loading-balls">
+                                    <div class="loading-ball loading-ball-1"></div>
+                                    <div class="loading-ball loading-ball-2"></div>
+                                    <div class="loading-ball loading-ball-3"></div>
+                                </div>
+								<?php //_e('Processing data', 'uberkit'); ?>
+                            </div>
 							<p class="vp-js-save-status save-status" style="display: none;"></p>
 						</div>
 					</div>
 				</form>
 			</div>
-		</div>
-		<div id="vp-copyright" class="vp-copyright">
-			<p><?php // printf(__('This option panel is built using <a href="http://vafpress.com/vafpress-framework">Vafpress Framework %s</a> powered by <a href="http://vafpress.com">Vafpress</a>', 'vp_textdomain'), VP_VERSION); ?></p>
 		</div>
 	</div>
 </div>
