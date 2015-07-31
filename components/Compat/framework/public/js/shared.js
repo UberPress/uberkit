@@ -932,8 +932,9 @@ vp.init_slider = function($elements)
 
 vp.upload_callback = function() {};
 
-if ( vp_wp.use_new_media_upload )
-{
+//if ( vp_wp.use_new_media_upload )
+//{
+	
 	var _orig_send_attachment = wp.media.editor.send.attachment,
 	    _orig_send_link       = wp.media.editor.send.link,
 	    _orig_send_to_editor  = window.send_to_editor;
@@ -973,32 +974,33 @@ if ( vp_wp.use_new_media_upload )
 		wp.media.editor.open($this);
 		return false;
 	};
-}
-else
-{
-	var _orig_send_to_editor = window.send_to_editor;
-
-	vp.upload_callback = function(e) {
-		var _custom_media = true,
-		       $input     = jQuery(this).parent('.buttons').prev('input'),
-		       $preview   = jQuery(this).parent('.buttons').siblings('.image').find('img');
-
-		tb_show('Upload Image', 'media-upload.php?&post_id=0&referer=vafpress&TB_iframe=true');
-
-		window.send_to_editor = function(html) {
-			if (html !== '')
-			{
-				var info = get_url_info(html);
-				$input.val(info.imgurl);
-				$input.trigger('change');
-				$preview.attr('src', info.iconurl);
-			}
-			window.send_to_editor = _orig_send_to_editor;
-			tb_remove();
-		};
-		return false;
-	};
-}
+	
+//}
+//else
+//{
+//	var _orig_send_to_editor = window.send_to_editor;
+//
+//	vp.upload_callback = function(e) {
+//		var _custom_media = true,
+//		       $input     = jQuery(this).parent('.buttons').prev('input'),
+//		       $preview   = jQuery(this).parent('.buttons').siblings('.image').find('img');
+//
+//		tb_show('Upload Image', 'media-upload.php?&post_id=0&referer=vafpress&TB_iframe=true');
+//
+//		window.send_to_editor = function(html) {
+//			if (html !== '')
+//			{
+//				var info = get_url_info(html);
+//				$input.val(info.imgurl);
+//				$input.trigger('change');
+//				$preview.attr('src', info.iconurl);
+//			}
+//			window.send_to_editor = _orig_send_to_editor;
+//			tb_remove();
+//		};
+//		return false;
+//	};
+//}
 
 function get_url_info(html)
 {

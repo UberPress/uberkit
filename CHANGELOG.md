@@ -1,3 +1,10 @@
+# 0.8.0 - Release Date: XX/XX/2015 #
+* Added Applets Core Functionality
+* Added color_shade() helper function
+* Added str_to_rgb() helper function
+* Added rgb_to_str() helper function
+* Improved Widget Settings Accordion
+
 # 0.7.0 #
 * Improved Loading Animation (CSS Animation instead of GIF)
 * New core.css which contains base styles accross options and metaboxes

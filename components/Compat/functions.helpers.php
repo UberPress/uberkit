@@ -225,8 +225,8 @@ if( ! function_exists( 'sort_array_by_position' ) ) {
 
 /**
  *
- * hex2rgba()
- * Convert HEX to RGBA
+ * HEX to RGBA
+ * Convert HEX color value to RGBA color value
  *
  * @param	string	$color
  * @param	string	$opacity
@@ -281,15 +281,13 @@ if( ! function_exists( 'hex2rgba' ) ) {
 
 
 /**
- *
- * rgb2rgba()
- * Convert RGB to RGBA
+ * RGB to RGBA
+ * Convert RGB color value to RGBA color value
  *
  * @param	string	$color
  * @param	string	$opacity
  *
  * @since	0.5.0
- *
  */
 
 if( ! function_exists( 'rgb2rgba' ) ) {
@@ -321,6 +319,193 @@ if( ! function_exists( 'rgb2rgba' ) ) {
 	
 		// Return rgb(a) color string
 		return $output;
+		
+	}
+	
+}
+
+
+/**
+ * Color Shade
+ * Calculates color shades of a given color
+ *
+ * @param	array	$rgb	- define a rgb color code
+ * @param	string	$type	- choose lighter or leave empty
+ * @param	int		$change - defines the change of the base color (eg. 255 -> 250)
+ *
+ * @since	0.6.0
+ */
+
+if( ! function_exists( 'color_shade' ) ) {
+	
+	function color_shade( array $rgb, $type, $change = 5 ) {
+	
+		 if( $type == 'lighter' ) {
+			 
+			$rgb[0] = 255-( 255-$rgb[0] ) + $change;
+			$rgb[1] = 255-( 255-$rgb[1] ) + $change;
+			$rgb[2] = 255-( 255-$rgb[2] ) + $change;
+	
+		 } else {
+			 
+			 $rgb[0] -= $change;
+			 $rgb[1] -= $change;
+			 $rgb[2] -= $change;
+			 
+		 }
+	
+		 return $rgb;
+		 
+	}
+	
+}
+
+/**
+ * String to RGB
+ * Converts a given string to a RGB Color Value
+ *
+ * @param	array	$str
+ *
+ * @since	0.6.0
+ */
+if( ! function_exists( 'str_to_rgb' ) ) {
+	
+	function str_to_rgb( $str ) {
+		
+		if( is_array( $str ) )
+			return $str;
+	
+		$str = preg_replace( '/\s+/', '', $str ); // replace all spaces
+	
+		$str = str_replace( array( 'rgba(', 'rgb(', ')' ), '', $str );
+	
+		$comp = explode( ',', $str, 4 );
+		$cnt  = count( $comp );
+	
+		if( $cnt < 3 || $cnt > 4 )
+			return array( 0,0,0 );
+	
+		return array_map( 'floatval', $comp );
+		
+	}
+	
+}
+
+/**
+ * String to RGB
+ * Converts a given string to a RGB Color Value
+ *
+ * @param	array	$str
+ *
+ * @since	0.6.0
+ */
+if( ! function_exists( 'rgb_to_str' ) ) {
+	
+	function rgb_to_str( $rgb, $raw = false ) {
+		
+		$str = implode( ',', $rgb );
+	
+		if( $raw )
+			return $str;
+	
+		return ( ( count( $rgb ) == 3 ) ? 'rgb(' : 'rgba(' ) . $str . ')';
+		
+	}
+	
+}
+
+/**
+ * Animation Effects
+ * for use with animate.css
+ *
+ * @param	array	$effects
+ *
+ * @since	0.7.0
+ */
+if( ! function_exists( 'uk_animation_effects' ) ) {
+
+	function uk_animation_effects() {
+		
+		$effects = array(
+		
+			'bounce'				=> 'bounce',
+			'flash'					=> 'flash',
+			'pulse'					=> 'pulse',
+			'rubberBand'			=> 'rubberBand',
+			'shake'					=> 'shake',
+			'swing'					=> 'swing',
+			'tada'					=> 'tada',
+			'wobble'				=> 'wobble',
+			'jello'					=> 'jello',
+			'bounceIn'				=> 'bounceIn',
+			'bounceInDown'			=> 'bounceInDown',
+			'bounceInLeft'			=> 'bounceInLeft',
+			'bounceInRight'			=> 'bounceInRight',
+			'bounceInUp'			=> 'bounceInUp',
+			'bounceOut'				=> 'bounceOut',
+			'bounceOutDown'			=> 'bounceOutDown',
+			'bounceOutLeft'			=> 'bounceOutLeft',
+			'bounceOutRight'		=> 'bounceOutRight',
+			'bounceOutUp'			=> 'bounceOutUp',
+			'fadeIn'				=> 'fadeIn',
+			'fadeInDown'			=> 'fadeInDown',
+			'fadeInDownBig'			=> 'fadeInDownBig',
+			'fadeInLeft'			=> 'fadeInLeft',
+			'fadeInLeftBig'			=> 'fadeInLeftBig',
+			'fadeInRight'			=> 'fadeInRight',
+			'fadeInRightBig'		=> 'fadeInRightBig',
+			'fadeInUp'				=> 'fadeInUp',
+			'fadeInUpBig'			=> 'fadeInUpBig',
+			'fadeOut'				=> 'fadeOut',
+			'fadeOutDown'			=> 'fadeOutDown',
+			'fadeOutDownBig'		=> 'fadeOutDownBig',
+			'fadeOutLeft'			=> 'fadeOutLeft',
+			'fadeOutLeftBig'		=> 'fadeOutLeftBig',
+			'fadeOutRight'			=> 'fadeOutRight',
+			'fadeOutRightBig'		=> 'fadeOutRightBig',
+			'fadeOutUp'				=> 'fadeOutUp',
+			'fadeOutUpBig'			=> 'fadeOutUpBig',
+			'flipInX'				=> 'flipInX',
+			'flipInY'				=> 'flipInY',
+			'flipOutX'				=> 'flipOutX',
+			'flipOutY'				=> 'flipOutY',
+			'lightSpeedIn'			=> 'lightSpeedIn',
+			'lightSpeedOut'			=> 'lightSpeedOut',
+			'rotateIn'				=> 'rotateIn',
+			'rotateInDownLeft'		=> 'rotateInDownLeft',
+			'rotateInDownRight'		=> 'rotateInDownRight',
+			'rotateInUpLeft'		=> 'rotateInUpLeft',
+			'rotateInUpRight'		=> 'rotateInUpRight',
+			'rotateOut'				=> 'rotateOut',
+			'rotateOutDownLeft'		=> 'rotateOutDownLeft',
+			'rotateOutDownRight'	=> 'rotateOutDownRight',
+			'rotateOutUpLeft'		=> 'rotateOutUpLeft',
+			'rotateOutUpRight'		=> 'rotateOutUpRight',
+			'hinge'					=> 'hinge',
+			'rollIn'				=> 'rollIn',
+			'rollOut'				=> 'rollOut',
+			'zoomIn'				=> 'zoomIn',
+			'zoomInDown'			=> 'zoomInDown',
+			'zoomInLeft'			=> 'zoomInLeft',
+			'zoomInRight'			=> 'zoomInRight',
+			'zoomInUp'				=> 'zoomInUp',
+			'zoomOut'				=> 'zoomOut',
+			'zoomOutDown'			=> 'zoomOutDown',
+			'zoomOutLeft'			=> 'zoomOutLeft',
+			'zoomOutRight'			=> 'zoomOutRight',
+			'zoomOutUp'				=> 'zoomOutUp',
+			'slideInDown'			=> 'slideInDown',
+			'slideInLeft'			=> 'slideInLeft',
+			'slideInRight'			=> 'slideInRight',
+			'slideInUp'				=> 'slideInUp',
+			'slideOutDown'			=> 'slideOutDown',
+			'slideOutLeft'			=> 'slideOutLeft',
+			'slideOutRight'			=> 'slideOutRight',
+			'slideOutUp'			=> 'slideOutUp'
+			
+		);
+		
+		return $effects;
 		
 	}
 	

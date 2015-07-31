@@ -266,14 +266,9 @@
 	border-color: #DDD;
 	padding: 10px;
 	margin: 0;
-    
-    -webkit-border-radius: 0;
-       -moz-border-radius: 0;
-            border-radius: 0;
-    
-    -webkit-box-shadow: none;
-       -moz-box-shadow: none;
-            box-shadow: none;
+    border-radius: 0;
+    box-shadow: none;
+	transition: all .2s linear;
 }
 
 .vp-metabox .vp-textbox .field input[type="text"],
@@ -281,6 +276,11 @@
 .vp-metabox .vp-textarea .field textarea {
 	width: 100%;
 }
+
+.vp-metabox .field input[type="text"]:focus {
+	border-color: #999;
+}
+
 
 /*
  * ##################################################
@@ -362,15 +362,56 @@
 .vp-metabox .vp-upload .buttons {
     width: 100%;
 }
+
 .vp-metabox .vp-upload .image {
-	max-width: 300px;
+    max-width: 500px;
+    position: relative;
+    text-align: center;
 }
+
+.vp-metabox .vp-upload .image.icon {
+    padding: 20px 0;
+    border: 1px solid #DDD;
+    background: #EEE;
+}
+
+.vp-metabox .uk-show {
+	display: block;
+}
+
+.vp-metabox .uk-hide {
+	display: none;
+}
+
+.vp-metabox .vp-upload .image .uk-image-overlay {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background: rgba(0,0,0,.5);
+    opacity: 0;
+    transition: all .2s linear;
+}
+
+.vp-metabox .vp-upload .image .uk-image-overlay .buttons {
+    position: absolute;
+    top: calc(50% - 15px);
+}
+
+.vp-metabox .vp-upload .image:hover .uk-image-overlay {
+    opacity: 1;
+}
+
 .vp-metabox .vp-upload .field .image {
 	line-height: 0em;
+    margin-bottom: 10px;
+
 }
-.vp-metabox .vp-upload .field .image img {
-	margin-bottom: 10px;
-}
+.vp-metabox .vp-upload .field .image img {}
+
 .vp-metabox .vp-upload .field .image img[src=""] {
 	display: none;
 }
@@ -529,15 +570,20 @@
 	border: 1px solid #ddd;
     box-shadow: none;
 }
+
+.vp-metabox .select2-container .select2-choice {background: none;}
+.vp-metabox .vp-socicon .field .input a {padding: 2px 0;}
+.vp-metabox .vp-socicon .field .input abbr {top: 50%;}
+
 .vp-metabox .vp-select .field .input a div,.vp-metabox .vp-fontawesome .field .inpu a div {
 	border-left-color: #cccccc;
 }
-.vp-metabox .vp-select .field .input .select2-dropdown-open a,.vp-metabox .vp-fontawesome .field .input .select2-dropdown-open a {
-	-webkit-box-shadow: 0 4px 5px rgba(0,0,0,0.15);
+.vp-metabox .vp-select .field .input .select2-dropdown-open a,
+.vp-metabox .vp-fontawesome .field .input .select2-dropdown-open a {
 	box-shadow: 0 4px 5px rgba(0,0,0,0.15);
 }
-.vp-metabox .vp-select .field .input .select2-dropdown-open.select2-drop-above a,.vp-metabox .vp-fontawesome .field .input .select2-dropdown-open.select2-drop-above a {
-	-webkit-box-shadow: 0 -4px 5px rgba(0,0,0,0.15);
+.vp-metabox .vp-select .field .input .select2-dropdown-open.select2-drop-above a,
+.vp-metabox .vp-fontawesome .field .input .select2-dropdown-open.select2-drop-above a {
 	box-shadow: 0 -4px 5px rgba(0,0,0,0.15);
 }
 /* SORTER & MULTISELECT */
@@ -886,6 +932,70 @@
   background-position: -20px 7px;
 }
 
+
+
+.post-php .select2-drop-active {
+    padding: 0;
+    border: 1px solid #999;
+    border-top: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.post-php .select2-search {
+    display: inline-block;
+    width: 100%;
+    min-height: 26px;
+    margin: 0;
+    padding: 0;
+}
+
+.post-php .select2-search input {
+    padding: 10px;
+    border: 1px solid #CCC;
+    line-height: 18px;
+    box-shadow: none;
+    background: none;
+    border-left: none;
+    border-right: none;
+}
+
+.post-php .select2-results {
+    max-height: 200px;
+    padding: 0;
+    margin: 0;
+}
+
+.post-php .select2-results li {
+    margin: 0;
+}
+
+.post-php .select2-results .select2-result-label {
+    padding: 9px 10px 10px 10px;
+    margin: 0;
+    cursor: pointer;
+    min-height: 1em;
+}
+
+.post-php .select2-results .select2-highlighted {
+    background: #333;
+    color: #fff;
+}
+
+.post-php .select2-results .select2-no-results,
+.post-php .select2-results .select2-searching,
+.post-php .select2-results .select2-selection-limit {
+    margin: 0;
+    padding: 10px;
+    background: none;
+    color: #C00;
+}
+
+.post-php .field .input .select2-container-active.select2-dropdown-open a {border: 1px solid #999;}
+
+
+/* BUTTONS */
+.uk-button .dashicons {margin: 3px 0 0 0;}
 
 /* Pagebuilder Fix for WP Editor */
 .jsn-bootstrap3.wr-editor-wrapper .tab-content {

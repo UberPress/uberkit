@@ -6,7 +6,8 @@
 add_action('uk/loaded', function($uk)
 {
     $uk->loadComponent('Compat')
-       ->loadComponent('Widget');
+       ->loadComponent('Widget')
+       ->loadComponent('Applets');
 
 
        //->loadComponent('Assets');

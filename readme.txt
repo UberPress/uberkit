@@ -4,7 +4,7 @@ Donate link:
 Tags: option, metabox, and shortocode generator framework
 Requires at least: 4.0.0
 Tested up to: 4.1.0
-Stable tag: 0.6.0
+Stable tag: 0.8.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -25,6 +25,13 @@ A: -
 None
 
 == Changelog ==
+# 0.8.0 - Release Date: XX/XX/2015 #
+* Added Applets Core Functionality
+* Added color_shade() helper function
+* Added str_to_rgb() helper function
+* Added rgb_to_str() helper function
+* Improved Widget Settings Accordion
+
 # 0.7.0 #
 * Improved Loading Animation (CSS Animation instead of GIF)
 * New core.css which contains base styles accross options and metaboxes

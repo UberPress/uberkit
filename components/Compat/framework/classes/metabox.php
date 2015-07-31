@@ -507,9 +507,6 @@ class VP_Metabox extends WPAlchemy_MetaBox
 		
 		if(isset($group['sortable']) and $group['sortable'])
 			$icon = '<i class="fa fa-bars"></i> ';
-			
-		if( $group['title_field'] )
-			$group['title'] = uk_meta( '_kolarik_listings_links', $group['title_field'], get_the_ID() );
 
 		foreach ($group['groups'] as $g)
 		{
@@ -568,34 +565,16 @@ class VP_Metabox extends WPAlchemy_MetaBox
 			$is_last  = false;
 			if ($g === end($group['groups'])){ $is_last = true; $class = ' last tocopy';}
 			if ($g === reset($group['groups'])){ $is_first = true; $class = ' first';}
-			
-			// hack to display a specified custom field as title/handle (added by jh)
-//			if( isset( $group['title_field'] ) ) {
-//				
-//				$gdata	= $g['name'];
-//				
-//				$gdata = str_replace( '[', ' ', $gdata );
-//				$gdata = str_replace( ']', '', $gdata );
-//				$gdata = explode( ' ', $gdata );
-//
-//				$id = $this->id;
-//				
-//				// get meta
-//				$meta = uk_meta( $id, $name );
-//				
-//				// set title
-//				$title = $meta[$gdata[2]][$group['title_field']];
-//				
-//				if( empty( $title ) )
-//					$title = $group['title'];
-//				
-//			} else {
-//				$title = $group['title'];
-//			}
-			// end_hack
-			
+						
 			$html .= '<div id="'. $g['name'] .'" class="vp-wpa-group wpa_group wpa_group-' . $name . $class . '">';
-			$html .= '<div class="vp-wpa-group-heading"><span class="vp-wpa-group-title" >' . $icon . $group['title'] . '</span><a href="#" class="dodelete vp-wpa-group-remove" title="'. __('Remove', 'vp_textdomain') .'"><i class="fa fa-times"></i></a></div>';
+			
+				$html .= '<div class="vp-wpa-group-heading">';
+					$html .= '<span class="vp-wpa-group-title" >' . $icon . $group['title'] . '</span>';
+					$html .= '<a href="#" class="dodelete vp-wpa-group-remove" title="'. __( 'Remove', 'uberkit' ) .'">';
+						$html .= '<i class="fa fa-times"></i>';
+					$html .= '</a>';
+				$html .= '</div>';
+				
 			$html .= '<div class="vp-controls' . ((!$is_first) ? ' vp-hide' : '') . '">';
 			if ($g === end($group['groups']))
 			{
@@ -618,7 +597,7 @@ class VP_Metabox extends WPAlchemy_MetaBox
 		}
 
 		$html .= '<div class="vp-wpa-group-add">';
-		$html .= '<a href="#" class="button button-primary button-large docopy-' . $name . '"><i class="fa fa-plus-circle"></i> '. __('Add More', 'vp_textdomain') . '</a>';
+			$html .= '<a href="#" class="button button-primary button-large docopy-' . $name . '"><i class="fa fa-plus-circle"></i> '. __( 'Add More', 'uberkit' ) . '</a>';
 		$html .= '</div>';
 
 		$html .= '</div>';
