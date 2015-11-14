@@ -25,7 +25,7 @@ A: -
 None
 
 == Changelog ==
-# 0.8.0 - Release Date: XX/XX/2015 #
+# 0.8.0 - Release Date: 14/11/2015 #
 * Added Applets Core Functionality
 * Added color_shade() helper function
 * Added str_to_rgb() helper function
