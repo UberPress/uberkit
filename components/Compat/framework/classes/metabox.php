@@ -98,7 +98,7 @@ class VP_Metabox extends WPAlchemy_MetaBox
 	function _setup()
 	{
 		$this->in_template = TRUE;
-		
+
 		// also make current post data available
 		global $post;
 
@@ -125,7 +125,7 @@ class VP_Metabox extends WPAlchemy_MetaBox
 				echo '</div>';
 			echo '</div>';
 		}
-	 
+
 		// create a nonce for verification
 		echo '<input type="hidden" name="'. $this->id .'_nonce" value="' . wp_create_nonce($this->id) . '" />';
 
@@ -170,18 +170,10 @@ class VP_Metabox extends WPAlchemy_MetaBox
 
 		foreach ($fields as $field)
 		{
-			if($field['type'] == 'group' and $field['repeating'])
-			{
-				$field_objects[$field['name']] = $this->_enfactor_group($field, $mb, true);
-			}
-			else if($field['type'] == 'group' and !$field['repeating'])
-			{
-				$field_objects[$field['name']] = $this->_enfactor_group($field, $mb, false);
-			}
+			if($field['type'] == 'group')
+				$field_objects[$field['name']] = $this->_enfactor_group($field, $mb, (isset($field['repeating']) && $field['repeating']));
 			else
-			{
 				$field_objects[$field['name']] = $this->_enfactor_field($field, $mb);
-			}
 		}
 
 		return $field_objects;
@@ -325,7 +317,7 @@ class VP_Metabox extends WPAlchemy_MetaBox
 								$field['is_hidden'] = true;
 								if($field['is_hidden'])
 									$field['container_extra_classes'][] = 'vp-hide';
-									
+
 								$field['container_extra_classes'][] = 'vp-dep-inactive';
 							}
 						}
@@ -467,13 +459,12 @@ class VP_Metabox extends WPAlchemy_MetaBox
 	{
 		foreach ($fields as $name => $field)
 		{
-			if( is_array($field) and $field['repeating'] )
+			if(is_array($field))
 			{
-				echo $this->_render_repeating_group($field);
-			}
-			else if( is_array($field) and !$field['repeating'] )
-			{
-				echo $this->_render_group($field);
+				if(isset($field['repeating']) && $field['repeating'])
+					echo $this->_render_repeating_group($field);
+				else
+					echo $this->_render_group($field);
 			}
 			else
 			{
@@ -504,7 +495,7 @@ class VP_Metabox extends WPAlchemy_MetaBox
 
 
 		$icon = '';
-		
+
 		if(isset($group['sortable']) and $group['sortable'])
 			$icon = '<i class="fa fa-bars"></i> ';
 
@@ -549,14 +540,18 @@ class VP_Metabox extends WPAlchemy_MetaBox
 				. '" class="vp-wpa-loop level-' . $oddity . ' wpa_loop wpa_loop-' . $name . ' vp-repeating-loop vp-meta-group'
 				. (isset($group['container_extra_classes']) ? (' ' . implode(' ', $group['container_extra_classes'])) : '')
 				. '"'
-				. VP_Util_Text::return_if_exists(isset($dependency) ? $dependency : '', 'data-vp-dependency="%s"')
-				. ' data-title="' . $group['title_field']. '">';
+				. VP_Util_Text::return_if_exists(isset($dependency) ? $dependency : '', 'data-vp-dependency="%s"');
+
+		if(isset($group['title_field']))
+			$html .= ' data-title="' . $group['title_field'];
+
+		$html .= '">';
 
 		$icon = '';
-		
+
 		if(isset($group['sortable']) and $group['sortable'])
 			$icon = '<i class="fa fa-bars"></i> ';
-			
+
 		foreach ($group['groups'] as $g)
 		{
 
@@ -565,16 +560,16 @@ class VP_Metabox extends WPAlchemy_MetaBox
 			$is_last  = false;
 			if ($g === end($group['groups'])){ $is_last = true; $class = ' last tocopy';}
 			if ($g === reset($group['groups'])){ $is_first = true; $class = ' first';}
-						
+
 			$html .= '<div id="'. $g['name'] .'" class="vp-wpa-group wpa_group wpa_group-' . $name . $class . '">';
-			
+
 				$html .= '<div class="vp-wpa-group-heading">';
 					$html .= '<span class="vp-wpa-group-title" >' . $icon . $group['title'] . '</span>';
 					$html .= '<a href="#" class="dodelete vp-wpa-group-remove" title="'. __( 'Remove', 'uberkit' ) .'">';
 						$html .= '<i class="fa fa-times"></i>';
 					$html .= '</a>';
 				$html .= '</div>';
-				
+
 			$html .= '<div class="vp-controls' . ((!$is_first) ? ' vp-hide' : '') . '">';
 			if ($g === end($group['groups']))
 			{
@@ -593,7 +588,7 @@ class VP_Metabox extends WPAlchemy_MetaBox
 			}
 			$html .= '</div>';
 			$html .= '</div>';
-			
+
 		}
 
 		$html .= '<div class="vp-wpa-group-add">';
@@ -605,31 +600,31 @@ class VP_Metabox extends WPAlchemy_MetaBox
 		return $html;
 	}
 
-	function _save($post_id) 
+	function _save($post_id)
 	{
 		// skip saving if dev mode is on
 		if($this->is_dev_mode)
 			return;
 
 		$real_post_id = isset($_POST['post_ID']) ? $_POST['post_ID'] : NULL ;
-		
+
 		// check autosave
 		if (defined('DOING_AUTOSAVE') AND DOING_AUTOSAVE AND !$this->autosave) return $post_id;
-	 
+
 		// make sure data came from our meta box, verify nonce
 		$nonce = isset($_POST[$this->id.'_nonce']) ? $_POST[$this->id.'_nonce'] : NULL ;
 		if (!wp_verify_nonce($nonce, $this->id)) return $post_id;
-	 
+
 		// check user permissions
-		if ($_POST['post_type'] == 'page') 
+		if ($_POST['post_type'] == 'page')
 		{
 			if (!current_user_can('edit_page', $post_id)) return $post_id;
 		}
-		else 
+		else
 		{
 			if (!current_user_can('edit_post', $post_id)) return $post_id;
 		}
-	 
+
 		// authentication passed, save data
 		$new_data = isset( $_POST[$this->id] ) ? $_POST[$this->id] : NULL ;
 
@@ -667,7 +662,7 @@ class VP_Metabox extends WPAlchemy_MetaBox
 				foreach ($new_data as $k => $v)
 				{
 					$field = $this->prefix . $k;
-					
+
 					array_push($new_fields,$field);
 
 					$new_value = $new_data[$k];
@@ -750,7 +745,7 @@ class VP_Metabox extends WPAlchemy_MetaBox
 					}
 				}
 			}
-			if (!count($arr)) 
+			if (!count($arr))
 			{
 				$arr = array();
 			}
@@ -762,7 +757,7 @@ class VP_Metabox extends WPAlchemy_MetaBox
 
 				foreach ($keys as $key)
 				{
-					if (!is_numeric($key)) 
+					if (!is_numeric($key))
 					{
 						$is_numeric = FALSE;
 						break;

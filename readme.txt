@@ -4,7 +4,7 @@ Donate link:
 Tags: option, metabox, and shortocode generator framework
 Requires at least: 4.0.0
 Tested up to: 4.1.0
-Stable tag: 0.8.0
+Stable tag: 0.8.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -25,6 +25,11 @@ A: -
 None
 
 == Changelog ==
+# 0.8.1 - Release Date: 27/02/2016 #
+* Updated jQuery Bootstrap Colorpicker (2.3.0)
+* Updated Font Awesome (4.5.0)
+* Minor Improvments
+
 # 0.8.0 - Release Date: 14/11/2015 #
 * Added Applets Core Functionality
 * Added color_shade() helper function

@@ -125,6 +125,10 @@ class Base
         foreach($applets as $class => $applet)
         {
             $assets = $applet->getAssets();
+			
+			// abort if no styles are available
+			if( !$assets )
+				return;
 
             if(is_array($assets['styles']))
             {
@@ -150,6 +154,10 @@ class Base
                 continue;
 
             $assets = $applet->getAssets();
+			
+			// abort if no styles are available
+			if( !$assets )
+				return;
 
             if(is_array($assets['scripts']))
             {

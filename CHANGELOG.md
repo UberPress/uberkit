@@ -1,4 +1,9 @@
-# 0.8.0 - Release Date: XX/XX/2015 #
+# 0.8.1 - Release Date: 27/02/2016 #
+* Updated jQuery Bootstrap Colorpicker (2.3.0)
+* Updated Font Awesome (4.5.0)
+* Minor Improvments
+
+# 0.8.0 - Release Date: 14/11/2015 #
 * Added Applets Core Functionality
 * Added color_shade() helper function
 * Added str_to_rgb() helper function

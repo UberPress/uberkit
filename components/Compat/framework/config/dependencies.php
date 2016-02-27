@@ -17,16 +17,16 @@ return array(
 	'scripts' => array(
 		'always' => array('jquery', 'scrollspy', 'tipsy', 'jquery-typing'),
 		'paths' => array(
-			'jquery' => array(
-				'path'     => VP_PUBLIC_URL . '/js/vendor/jquery-1.8.3.min.js',
-				'deps'     => array(),
-				'ver'      => '1.8.3',
-				'override' => false,
-			),
+//			'jquery' => array(
+//				'path'     => VP_PUBLIC_URL . '/js/vendor/jquery-1.8.3.min.js',
+//				'deps'     => array(),
+//				'ver'      => '1.8.3',
+//				'override' => false,
+//			),
 			'bootstrap-colorpicker' => array(
-				'path'     => '//cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.1.0/js/bootstrap-colorpicker.min.js',
+				'path'     => '//cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.3.0/js/bootstrap-colorpicker.min.js',
 				'deps'     => array('jquery'),
-				'ver'      => '2.1.0',
+				'ver'      => '2.3.0',
 			),
 			'tipsy' => array(
 				'path'     => VP_PUBLIC_URL . '/js/vendor/jquery.tipsy.js',
@@ -157,7 +157,7 @@ return array(
 		'always' => array('tipsy', 'font-awesome', 'socicon'),
 		'paths' => array(
 			'bootstrap-colorpicker' => array(
-				'path' => '//cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.1.0/css/bootstrap-colorpicker.min.css',
+				'path' => '//cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.3.0/css/bootstrap-colorpicker.min.css',
 				'deps' => array(),
 			),
 			'tipsy' => array(
@@ -170,7 +170,7 @@ return array(
 				'deps' => array(),
 			),
 			'font-awesome' => array(
-				'path' => '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css',
+				'path' => '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css',
 				'deps' => array(),
 			),
 			'socicon' => array(

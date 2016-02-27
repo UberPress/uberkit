@@ -5,8 +5,8 @@
  * Plugin Name: 			UberKit
  * Plugin URI: 				http://uberkit.io
  *
- * Description: 			WordPress Framework 
- * Version: 				0.8.0
+ * Description: 			WordPress Framework
+ * Version: 				0.8.1
  *
  * Author:					UberPress
  * Author URI: 				http://uberpress.io
@@ -55,7 +55,7 @@ class UberKit extends UK\Plugin
 
         /* Load the translation of the plugin. */
         load_plugin_textdomain( 'uberkit', false, 'uberkit/lang' );
-        
+
     }
 
     private function _setupLoader()
