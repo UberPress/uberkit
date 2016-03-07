@@ -1,3 +1,7 @@
+# 0.8.2 - Release Date: 07/03/2016 #
+* Updated Socicon (3.0.1)
+* Fixed Socicon Field Type not loading select2
+
 # 0.8.1 - Release Date: 27/02/2016 #
 * Updated jQuery Bootstrap Colorpicker (2.3.0)
 * Updated Font Awesome (4.5.0)

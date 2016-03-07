@@ -40,6 +40,7 @@ function vp_get_posts()
 	{
 		$result[] = array('value' => $post->ID, 'label' => $post->post_title);
 	}
+	
 	return $result;
 }
 
@@ -250,11 +251,10 @@ function vp_get_social_medias() {
 	
 }
 
-function vp_get_fontawesome_icons()
-{
+function vp_get_fontawesome_icons() {
+	
 	// scrape list of icons from fontawesome css
-	if( false === ( $icons  = get_transient( 'vp_fontawesome_icons' ) ) )
-	{
+	if( false === ( $icons  = get_transient( 'vp_fontawesome_icons' ) ) ) {
 		$pattern = '/\.(fa-(?:\w+(?:-)?)+):before\s*{\s*content/';
 		$subject = file_get_contents(VP_DIR . '/public/css/vendor/font-awesome.min.css');
 
@@ -263,20 +263,22 @@ function vp_get_fontawesome_icons()
 		$icons = array();
 
 		foreach($matches as $match)
-		{
 		    $icons[] = array('value' => $match[1], 'label' => $match[1]);
-		}
+			
+		sort($icons);
+		
 		set_transient( 'vp_fontawesome_icons', $icons, 60 * 60 * 24 );
 	}
 
 	return $icons;
+	
 }
 
-function vp_get_socicons()
-{
+function vp_get_socicons() {
+	
 	// scrape list of icons from socicon css
-	if( false === ( $icons  = get_transient( 'vp_socicons' ) ) )
-	{
+	if( false === ( $icons  = get_transient( 'vp_socicons' ) ) ) {
+		
 		$pattern = '/\.(socicon-(?:\w+(?:-)?)+):before\s*{\s*content/';
 		$subject = file_get_contents(VP_DIR . '/public/css/vendor/socicon.css');
 
@@ -285,13 +287,15 @@ function vp_get_socicons()
 		$icons = array();
 
 		foreach($matches as $match)
-		{
 		    $icons[] = array('value' => $match[1], 'label' => $match[1]);
-		}
+			
+		sort($icons);
+
 		set_transient( 'vp_socicons', $icons, 60 * 60 * 24 );
 	}
 
 	return $icons;
+	
 }
 
 VP_Security::instance()->whitelist_function('uk_dep_boolean');

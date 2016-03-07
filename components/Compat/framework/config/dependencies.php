@@ -9,7 +9,7 @@ return array(
 	/**
 	 * jQuery UI Theme
 	 */
-	'jqui_theme' => ($jqui_theme = 'flick'),
+	'jqui_theme' => ($jqui_theme = 'smoothness'),
 
 	/**
 	 * Scripts.
@@ -210,6 +210,7 @@ return array(
 	'rules'   => array(
 		'color'       => array( 'js' => array('bootstrap-colorpicker'), 'css' => array('bootstrap-colorpicker') ),
 		'select'      => array( 'js' => array('select2'), 'css' => array('select2') ),
+		'socicon'     => array( 'js' => array('select2'), 'css' => array('select2') ),
 		'multiselect' => array( 'js' => array('select2'), 'css' => array('select2') ),
 		'slider'      => array( 'js' => array('jquery-ui-slider'), 'css' => array('jqui') ),
 		'date'        => array( 'js' => array('jquery-ui-datepicker'), 'css' => array('jqui') ),

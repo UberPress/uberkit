@@ -161,6 +161,7 @@
 	text-transform: uppercase;
 }
 .vp-metabox .vp-wpa-loop .vp-wpa-group {
+    width: 100%;
 	position: relative;
 	background: #FFF;
 	border: none;
@@ -573,8 +574,29 @@
 
 .vp-metabox .select2-container .select2-choice {background: none;}
 .vp-metabox .vp-socicon .field .input a {padding: 2px 0;}
-.vp-metabox .vp-socicon .field .input abbr {top: 50%;}
+.vp-metabox .vp-socicon .field .input abbr {top: 35%;}
 
+/*.uk-metabox .vp-socicon > a > span {padding: 4px 10px;}*/
+.uk-metabox .vp-socicon > a > span {}
+
+.uk-metabox .vp-socicon .select2-container .select2-choice span {
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.uk-metabox .vp-socicon .select2-container .select2-choice div {
+    width: 30px;
+    border-left: 1px solid #aaa;
+    background: none;
+    
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+
+
+post-new.phpmedia="all"
 .vp-metabox .vp-select .field .input a div,.vp-metabox .vp-fontawesome .field .inpu a div {
 	border-left-color: #cccccc;
 }
@@ -913,7 +935,7 @@
 }
 
 .vp-metabox .select2-results .select2-highlighted {
-    background: #278ab7
+    background: #444;
 }
 
 
@@ -924,12 +946,12 @@
 
 .vp-metabox .select2-container .select2-choice .select2-arrow b,
 .vp-metabox .select2-container .select2-choice div b {
-  background-position: -2px 7px;
+  background-position: 7px 7px;
 }
 
 .vp-metabox .select2-dropdown-open .select2-choice .select2-arrow b,
 .vp-metabox .select2-dropdown-open .select2-choice div b {
-  background-position: -20px 7px;
+  background-position: -11px 7px;
 }
 
 
