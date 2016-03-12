@@ -6,7 +6,7 @@
  * Plugin URI: 				http://uberkit.io
  *
  * Description: 			WordPress Framework
- * Version: 				0.8.2
+ * Version: 				0.8.3
  *
  * Author:					UberPress
  * Author URI: 				http://uberpress.io

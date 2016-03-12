@@ -9,7 +9,7 @@ return array(
 	/**
 	 * jQuery UI Theme
 	 */
-	'jqui_theme' => ($jqui_theme = 'smoothness'),
+	'jqui_theme' => ($jqui_theme = 'uberkit'),
 
 	/**
 	 * Scripts.
@@ -165,8 +165,7 @@ return array(
 				'deps' => array(),
 			),
 			'jqui' => array(
-				//'path' => VP_PUBLIC_URL . '/css/vendor/jqueryui/themes/' . $jqui_theme . '/jquery-ui-1.9.2.custom.min.css',
-				'path' => VP_PUBLIC_URL . '/css/vendor/jqueryui/themes/' . $jqui_theme . '/jquery-ui.custom.min.css',
+				'path' => VP_PUBLIC_URL . '/css/vendor/jqueryui/themes/' . $jqui_theme . '/jquery-ui.min.css',
 				'deps' => array(),
 			),
 			'font-awesome' => array(

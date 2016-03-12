@@ -1,3 +1,6 @@
+# 0.8.3 - Release Date: 12/03/2016 #
+* Update: Datepicker Theme
+
 # 0.8.2 - Release Date: 07/03/2016 #
 * Updated Socicon (3.0.1)
 * Fixed Socicon Field Type not loading select2

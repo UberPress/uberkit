@@ -3,8 +3,8 @@ Contributors: ANEX
 Donate link:
 Tags: option, metabox, and shortocode generator framework
 Requires at least: 4.0.0
-Tested up to: 4.1.0
-Stable tag: 0.8.2
+Tested up to: 4.4.0
+Stable tag: 0.8.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -25,6 +25,9 @@ A: -
 None
 
 == Changelog ==
+# 0.8.3 - Release Date: 12/03/2016 #
+* Update: Datepicker Theme
+
 # 0.8.2 - Release Date: 07/03/2016 #
 * Updated Socicon (3.0.1)
 * Fixed Socicon Field Type not loading select2
