@@ -4,7 +4,7 @@ Donate link:
 Tags: option, metabox, and shortocode generator framework
 Requires at least: 4.0.0
 Tested up to: 4.4.0
-Stable tag: 0.8.5
+Stable tag: 0.8.6
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -25,6 +25,9 @@ A: -
 None
 
 == Changelog ==
+# 0.8.6 - Release Date: 15/03/2016 #
+* Fixed FontAwesome and Socicon to load local instead of CDN (this is currently not possible due to loading mechanism)
+
 # 0.8.5 - Release Date: 15/03/2016 #
 * Added: Flexboxgrid.css
 * Improved: HTML Field

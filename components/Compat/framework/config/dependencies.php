@@ -173,12 +173,11 @@ return array(
 				'deps' => array(),
 			),
 			'font-awesome' => array(
-				'path' => '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css',
+				'path' => VP_PUBLIC_URL . '/css/vendor/font-awesome.min.css',
 				'deps' => array(),
 			),
 			'socicon' => array(
-				//'path' => VP_PUBLIC_URL . '/css/vendor/socicon.css',
-				'path' => '//file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/icons.css',
+				'path' => VP_PUBLIC_URL . '/css/vendor/socicon.css',
 				'deps' => array(),
 			),
 			'select2' => array(

@@ -1,3 +1,6 @@
+# 0.8.6 - Release Date: 15/03/2016 #
+* Fixed FontAwesome and Socicon to load local instead of CDN (this is currently not possible due to loading mechanism)
+
 # 0.8.5 - Release Date: 15/03/2016 #
 * Added: Flexboxgrid.css
 * Improved: HTML Field
