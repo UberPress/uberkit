@@ -1,5 +1,5 @@
-<div class="wrap">
-	<h2><?php echo $set->get_title(); ?></h2>
+<div class="wrap uberkit-option-wrap">
+	<?php /*?><h2><?php echo $set->get_title(); ?></h2><?php */?>
 	<div id="vp-wrap" class="vp-wrap uk-wrap">
 		<div id="vp-option-panel"class="vp-option-panel <?php echo ($set->get_layout() === 'fixed') ? 'fixed-layout' : 'fluid-layout' ; ?>">
 			<div class="vp-left-panel">
@@ -61,6 +61,7 @@
 						<?php endforeach; ?>
 					</ul>
 				</div>
+                
 			</div>
 			<div class="vp-right-panel">
 				<form id="vp-option-form" class="vp-option-form vp-js-option-form" method="POST">

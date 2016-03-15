@@ -173,7 +173,8 @@ return array(
 				'deps' => array(),
 			),
 			'socicon' => array(
-				'path' => VP_PUBLIC_URL . '/css/vendor/socicon.css',
+				//'path' => VP_PUBLIC_URL . '/css/vendor/socicon.css',
+				'path' => '//file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/icons.css',
 				'deps' => array(),
 			),
 			'select2' => array(
@@ -185,19 +186,19 @@ return array(
 				'deps' => array(),
 			),
 			'uk-core' => array(
-				'path' => VP_PUBLIC_URL . '/css/core.css',
+				'path' => VP_PUBLIC_URL . '/css/core.min.css',
 				'deps' => array(),
 			),
 			'vp-option' => array(
-				'path' => VP_PUBLIC_URL . '/css/option.css',
+				'path' => VP_PUBLIC_URL . '/css/option.min.css',
 				'deps' => array(),
 			),
 			'vp-metabox' => array(
-				'path' => VP_PUBLIC_URL . '/css/metabox.css',
+				'path' => VP_PUBLIC_URL . '/css/metabox.min.css',
 				'deps' => array(),
 			),
 			'vp-shortcode' => array(
-				'path' => VP_PUBLIC_URL . '/css/shortcode.css',
+				'path' => VP_PUBLIC_URL . '/css/shortcode.min.css',
 				'deps' => array('reveal'),
 			),
 		),

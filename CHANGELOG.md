@@ -1,3 +1,12 @@
+# 0.8.4 - Release Date: 15/03/2016 #
+* Update: Option Page Styles
+* Update: Option Page View (Markup)
+* Fixed: JS Bug in option.min.js which caused weird behaviour on Option Pages
+* Improved: Minified CSS
+* Depreceated: FontAwesome (local)
+* Depreceated: SocIcon (local)
+* Depreceated: Colorpicker (local)
+
 # 0.8.3 - Release Date: 12/03/2016 #
 * Update: Datepicker Theme
 

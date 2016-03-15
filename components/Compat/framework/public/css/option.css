@@ -1,4 +1,4 @@
-@import url('core.css');
+@import url('core.min.css');
 
 /*
  * ####################################################################################################
@@ -7,6 +7,13 @@
  * ####################################################################################################
  * ####################################################################################################
  */
+
+.uberkit-option-wrap {
+    margin: 0;
+    margin-left: -20px;
+}
+
+.uberkit-option-wrap .uk-wrap {width: calc(100% + 20px); position: absolute; top: 0; bottom: 0; left: -20px; right: 0; z-index: 1;}
 
 /*
  * ####################################################################################################
@@ -21,14 +28,12 @@
     height: auto;
     min-width: 680px;
     min-height: 100%;
-    margin-top: 20px;
 
     display: table;
     position: relative;
     
     color: #666;
 
-    border: 1px solid #ddd;
     background: #FFF;
     
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.05);
@@ -116,7 +121,7 @@
 }
 
 .vp-wrap .vp-left-panel {
-    width: 220px;
+    width: 250px;
     display: table-cell;
     position: relative;
     vertical-align: top;
@@ -278,8 +283,8 @@
 }
 
 .vp-wrap .vp-submit {
-    position: absolute;
-    right: 0;
+    position: fixed;
+    right: 50px;
     /*width: 100%;*/
 }
 
@@ -288,7 +293,7 @@
 }
 
 .vp-wrap .vp-submit.bottom {
-    bottom: 0
+    bottom: 50px
 }
 
 .vp-wrap .vp-submit .inner {
@@ -489,6 +494,11 @@
 .vp-wrap .vp-field .label .description p {
     margin: 0;
     line-height: 1.8;
+}
+
+.vp-wrap .vp-field .label .description li {
+    margin: 0;
+    padding: 5px 0;
 }
 
 .vp-wrap .vp-field .field {
