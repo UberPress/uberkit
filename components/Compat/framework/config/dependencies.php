@@ -154,10 +154,14 @@ return array(
 	 * Styles.
 	 */
 	'styles' => array(
-		'always' => array('tipsy', 'font-awesome', 'socicon'),
+		'always' => array('tipsy', 'font-awesome', 'socicon', 'flexboxgrid'),
 		'paths' => array(
 			'bootstrap-colorpicker' => array(
 				'path' => '//cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.3.0/css/bootstrap-colorpicker.min.css',
+				'deps' => array(),
+			),
+			'flexboxgrid' => array(
+				'path' => VP_PUBLIC_URL . '/css/vendor/flexboxgrid/flexboxgrid.min.css',
 				'deps' => array(),
 			),
 			'tipsy' => array(

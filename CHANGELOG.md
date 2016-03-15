@@ -1,3 +1,8 @@
+# 0.8.5 - Release Date: 15/03/2016 #
+* Added: Flexboxgrid.css
+* Improved: HTML Field
+* Improved: Option Page Styling
+
 # 0.8.4 - Release Date: 15/03/2016 #
 * Update: Option Page Styles
 * Update: Option Page View (Markup)

@@ -509,6 +509,10 @@
     width: 70%
 }
 
+.vp-wrap .vp-field .field.nospace {
+    padding: 0;
+}
+
 .vp-wrap .vp-field .field .input {
     position: relative
 }
@@ -1169,8 +1173,40 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4dffffff', end
     width: 140px
 }
 
-.vp-wrap .vp-html .field .input {
-    overflow: auto
+/*
+ * ##################################################
+ * HTML FIELD #######################################
+ * ##################################################
+ */
+
+.vp-wrap .vp-html .field .input {}
+
+.vp-wrap .vp-html .field .input h2,
+.vp-wrap .vp-html .field .input h3 {
+    font-family: 'Open Sans';
+    font-weight: 300;
+}
+.vp-wrap .vp-html .field .input .hero h2,
+.vp-wrap .vp-html .field .input .hero h3 {
+    font-size: 2em;
+    color: #FFF;
+}
+
+.vp-wrap .vp-html .field .input .hero p {
+    font-size: 1em;
+}
+
+.vp-wrap .vp-html .field .input .hero i {
+    font-size: 3.6em;
+}
+
+.vp-wrap .vp-html .field .input .hero .box {
+    padding: 50px;
+    margin-bottom: 50px;
+    color: #CCC;
+    text-align: center;
+    font-size: 1rem;
+    background: #222 url(../img/lowpoly.png) repeat;
 }
 
 .vp-wrap .vp-html .field .vp-field-loader {
