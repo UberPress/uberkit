@@ -26,6 +26,7 @@ class Base
         require __DIR__ . '/taxmeta/Tax-meta-class.php'; // specifically used for the menu categories (fabios menu)
        
 	    require __DIR__ . '/functions.base.php';
+        require __DIR__ . '/functions.admin.php';
         require __DIR__ . '/functions.helpers.php';
         require __DIR__ . '/functions.depreceated.php';
 

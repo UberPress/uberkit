@@ -103,7 +103,8 @@
     float: left;
     
     line-height: 28px;
-    
+    text-shadow: none;
+
     -webkit-box-shadow: none;
        -moz-box-shadow: none;
     		box-shadow: none;
@@ -378,6 +379,7 @@
     content: '\f00d';
     line-height: 26px;
     background: #CB4B4B;
+
 }
 
 .vp-wrap .vp-panel {
