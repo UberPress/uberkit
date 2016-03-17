@@ -256,7 +256,7 @@ function vp_get_fontawesome_icons() {
 	// scrape list of icons from fontawesome css
 	if( false === ( $icons  = get_transient( 'vp_fontawesome_icons' ) ) ) {
 		$pattern = '/\.(fa-(?:\w+(?:-)?)+):before\s*{\s*content/';
-		$subject = file_get_contents(VP_DIR . '/public/css/vendor/font-awesome.min.css');
+		$subject = file_get_contents(VP_DIR . '/public/vendor/font-awesome/css/font-awesome.min.css');
 
 		preg_match_all($pattern, $subject, $matches, PREG_SET_ORDER);
 
@@ -280,7 +280,7 @@ function vp_get_socicons() {
 	if( false === ( $icons  = get_transient( 'vp_socicons' ) ) ) {
 		
 		$pattern = '/\.(socicon-(?:\w+(?:-)?)+):before\s*{\s*content/';
-		$subject = file_get_contents(VP_DIR . '/public/css/vendor/socicon.css');
+		$subject = file_get_contents(VP_DIR . '/public/vendor/socicon/css/socicon.css');
 
 		preg_match_all($pattern, $subject, $matches, PREG_SET_ORDER);
 

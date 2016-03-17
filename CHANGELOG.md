@@ -1,3 +1,8 @@
+# 0.8.8 - Release Date: 17/03/2016 #
+* Updated FontAwesome to 4.5.0
+* Improved folder structure (3rd party assets are now within the 'vendor' folder) and moved various 3rd party scripts
+* Removed outdated files
+
 # 0.8.7 - Release Date: 17/03/2016 #
 * Added functions.admin.php
 * Added uk_get_wp_admin_color_scheme() function (to get the current active color scheme color codes)

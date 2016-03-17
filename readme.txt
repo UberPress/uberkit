@@ -1,10 +1,11 @@
 === UberKit ===
+
 Contributors: ANEX
 Donate link:
 Tags: option, metabox, and shortocode generator framework
 Requires at least: 4.0.0
 Tested up to: 4.4.0
-Stable tag: 0.8.7
+Stable tag: 0.8.8
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -25,6 +26,11 @@ A: -
 None
 
 == Changelog ==
+# 0.8.8 - Release Date: 17/03/2016 #
+* Updated FontAwesome to 4.5.0
+* Improved folder structure (3rd party assets are now within the 'vendor' folder) and moved various 3rd party scripts
+* Removed outdated files
+
 # 0.8.7 - Release Date: 17/03/2016 #
 * Added functions.admin.php
 * Added uk_get_wp_admin_color_scheme() function (to get the current active color scheme color codes)

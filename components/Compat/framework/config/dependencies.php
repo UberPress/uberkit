@@ -29,7 +29,7 @@ return array(
 				'ver'      => '2.3.0',
 			),
 			'tipsy' => array(
-				'path'     => VP_PUBLIC_URL . '/js/vendor/jquery.tipsy.js',
+				'path'     => VP_PUBLIC_URL . '/vendor/tipsy/js/jquery.tipsy.js',
 				'deps'     => array('jquery'),
 				'ver'      => '1.0.0a'
 			),
@@ -161,11 +161,11 @@ return array(
 				'deps' => array(),
 			),
 			'flexboxgrid' => array(
-				'path' => VP_PUBLIC_URL . '/css/vendor/flexboxgrid/flexboxgrid.min.css',
+				'path' => VP_PUBLIC_URL . '/vendor/flexboxgrid/css/flexboxgrid.min.css',
 				'deps' => array(),
 			),
 			'tipsy' => array(
-				'path' => VP_PUBLIC_URL . '/css/vendor/tipsy.css',
+				'path' => VP_PUBLIC_URL . '/vendor/tipsy/css/tipsy.css',
 				'deps' => array(),
 			),
 			'jqui' => array(
@@ -173,11 +173,11 @@ return array(
 				'deps' => array(),
 			),
 			'font-awesome' => array(
-				'path' => VP_PUBLIC_URL . '/css/vendor/font-awesome.min.css',
+				'path' => VP_PUBLIC_URL . '/vendor/font-awesome/css/font-awesome.min.css',
 				'deps' => array(),
 			),
 			'socicon' => array(
-				'path' => VP_PUBLIC_URL . '/css/vendor/socicon.css',
+				'path' => VP_PUBLIC_URL . '/vendor/socicon/css/socicon.css',
 				'deps' => array(),
 			),
 			'select2' => array(
