@@ -34,7 +34,7 @@
     
     color: #666;
 
-    background: #FFF;
+    background: #FCFCFC;
     
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.05);
        -moz-box-shadow: 0 1px 3px rgba(0,0,0,.05);
@@ -390,14 +390,14 @@
 }
 
 .vp-wrap .vp-panel > h2 {
-    background-color: #f9f9f9;
+    background-color: #F6F6F6;
     margin: 10px 0 30px;
     padding: 0;
     height: 10px
 }
 
 .vp-wrap .vp-panel > h2 span {
-    background-color: #fff;
+    background-color: #FCFCFC;
     line-height: 1em;
     padding: 0 15px 0 0;
     position: relative;
@@ -405,7 +405,7 @@
 }
 
 .vp-wrap .vp-section {
-    background-color: #fff;
+    background-color: #FCFCFC;
     margin-top: -1px;
     padding: 30px 0 20px;
     position: relative;
@@ -413,7 +413,7 @@
 }
 
 .vp-wrap .vp-section > h3 {
-    background-color: #fff;
+    background-color: #FCFCFC;
     color: #333;
     font-size: 12px;
     line-height: 1em;
