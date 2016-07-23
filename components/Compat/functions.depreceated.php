@@ -11,11 +11,15 @@
 
 function encore_get_option( $key, $name = null, $default = null ) {
 	
-	echo '<pre>';
-	debug_print_backtrace();
-	echo '</pre>';
+	if( WP_DEBUG == true ) {
+		
+		echo '<pre>';
+		debug_print_backtrace();
+		echo '</pre>';
+		
+		wp_die( 'The encore_option() and encore_get_option function is deprecated. Please use uk_option() and uk_get_option() instead' );
 	
-	wp_die( 'The encore_option() and encore_get_option function is deprecated. Please use uk_option() and uk_get_option() instead' );
+	}
 
 	$val = vp_option( ( $name ? ( $key . '.' . $name ) : $key ) );
 	
@@ -40,11 +44,15 @@ function encore_option( $key, $name = null, $default = null ) {
 
 function encore_meta( $key, $subkey = null, $id = null ) {
 	
-	echo '<pre>';
-	debug_print_backtrace();
-	echo '</pre>';
-
-	wp_die( 'The encore_meta() function is deprecated. Please use uk_meta() instead' );
+	if( WP_DEBUG == true ) {
+		
+		echo '<pre>';
+		debug_print_backtrace();
+		echo '</pre>';
+	
+		wp_die( 'The encore_meta() function is deprecated. Please use uk_meta() instead' );
+	
+	}
 
 	if( !$id )
 		$id = get_the_ID();
