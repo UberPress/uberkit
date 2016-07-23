@@ -4,8 +4,8 @@ Contributors: ANEX
 Donate link:
 Tags: option, metabox, and shortocode generator framework
 Requires at least: 4.0.0
-Tested up to: 4.4.0
-Stable tag: 0.8.9
+Tested up to: 4.5.3
+Stable tag: 0.9.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -26,6 +26,13 @@ A: -
 None
 
 == Changelog ==
+# 0.9.0 - Release Date: 23/07/2016 #
+* Add: Admin Body Class (.uberkit) to UberKit Option Pages
+* Improvment: Admin Option UI (CSS)
+* Improvment: Check if WP_DEBUG is active and load minified or unminified stylesheets
+* Improvment: Add Notice if deprecated functions encore_meta or encore_options are still getting used
+* Various: Further minor improvments
+
 # 0.8.9 - Release Date: 20/03/2016 #
 * Improved Admin Option UI
 

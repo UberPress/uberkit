@@ -1,3 +1,10 @@
+# 0.9.0 - Release Date: 23/07/2016 #
+* Add: Admin Body Class (.uberkit) to UberKit Option Pages
+* Improvment: Admin Option UI (CSS)
+* Improvment: Check if WP_DEBUG is active and load minified or unminified stylesheets
+* Improvment: Add Notice if deprecated functions encore_meta or encore_options are still getting used
+* Various: Further minor improvments
+
 # 0.8.9 - Release Date: 20/03/2016 #
 * Improved Admin Option UI
 

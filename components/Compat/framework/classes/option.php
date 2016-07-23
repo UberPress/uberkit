@@ -150,16 +150,24 @@ class VP_Option
 
 		// register option page load
 		add_action( 'load-' . $this->get_hook_suffix(), array($this, 'setup') );
-	}
 
-	public function setup()
-	{
+	}
+	
+	public function setup() {
 		$this->init_options_set();
 		$this->init_options();
 		$this->enqueue_scripts_and_styles();
 		// show dev mode notice
 		if( $this->is_dev_mode() )
 			add_action( 'admin_notices', array( $this, 'dev_mode_notice' ) );
+			
+		add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
+		
+	}
+	
+	public function admin_body_class( $classes ) {
+		$classes .= ' uberkit ';
+		return $classes;
 	}
 
 	public function dev_mode_notice()

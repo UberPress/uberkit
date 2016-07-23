@@ -95,7 +95,7 @@ class Plugin
     public function getOption($key = null, $default = null)
     {
         $prefix = $this->getOptionKey();
-        return encore_get_option($prefix, $key, $default);
+        return uk_option($prefix, $key, $default);
     }
 
     public function __get($key)

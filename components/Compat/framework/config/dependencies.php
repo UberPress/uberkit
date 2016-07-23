@@ -1,5 +1,11 @@
 <?php
 
+if( WP_DEBUG == true ) {
+	$suffix = '';	
+} else {
+	$suffix = '.min';	
+}
+
 return array(
 
 	////////////////////////////////////////////////
@@ -189,19 +195,19 @@ return array(
 				'deps' => array(),
 			),
 			'uk-core' => array(
-				'path' => VP_PUBLIC_URL . '/css/core.min.css',
+				'path' => VP_PUBLIC_URL . '/css/core' . $suffix . '.css',
 				'deps' => array(),
 			),
 			'vp-option' => array(
-				'path' => VP_PUBLIC_URL . '/css/option.min.css',
+				'path' => VP_PUBLIC_URL . '/css/option' . $suffix . '.css',
 				'deps' => array(),
 			),
 			'vp-metabox' => array(
-				'path' => VP_PUBLIC_URL . '/css/metabox.min.css',
+				'path' => VP_PUBLIC_URL . '/css/metabox' . $suffix . '.css',
 				'deps' => array(),
 			),
 			'vp-shortcode' => array(
-				'path' => VP_PUBLIC_URL . '/css/shortcode.min.css',
+				'path' => VP_PUBLIC_URL . '/css/shortcode' . $suffix . '.css',
 				'deps' => array('reveal'),
 			),
 		),

@@ -9,11 +9,29 @@
  */
 
 .uberkit-option-wrap {
-    margin: 0;
-    margin-left: -20px;
+    margin: 0 0 0 -20px;
+    min-height: calc(100vh - 32px);
 }
 
-.uberkit-option-wrap .uk-wrap {width: calc(100% + 20px); position: absolute; top: 0; bottom: 0; left: -20px; right: 0; z-index: 1;}
+@media screen and (max-width: 782px) {
+    .uberkit-option-wrap {
+        min-height: calc(100vh - 46px);
+    }
+}
+
+#wpbody-content {
+    padding-bottom: 0;
+}
+
+.uberkit-option-wrap .uk-wrap {
+    width: calc(100% + 20px);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -20px;
+    right: 0;
+    z-index: 1;
+}
 
 /*
  * ####################################################################################################
@@ -545,8 +563,9 @@
     font-size: 11px;
     font-family: 'FontAwesome', 'Open Sans';
     color: rgb(108,0,0);
-    background: rgba(255,255,255,.75);
+    background: #FCFCFC;
     padding: 0 20px;
+    opacity: .8;
 }
 
 /* ================================================== */
