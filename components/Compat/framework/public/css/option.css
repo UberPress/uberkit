@@ -147,6 +147,11 @@
     background: #222;
 }
 
+.uberkit ul#adminmenu a.wp-has-current-submenu:after,
+.uberkit ul#adminmenu > li.current > a.current:after {
+    border-right-color: #222;
+}
+
 .vp-wrap .vp-logo {
     text-align: center;
     min-height: 30px;
@@ -551,7 +556,7 @@
 }
 
 .vp-wrap .vp-field[data-vp-validation=premium]:after {
-    content: '\f0a3   Please enter your license key in order to use this option.';
+    content: 'Please enter your license key in order to use this option.';
     width: 100%;
     height: 100%;
     position: absolute;
@@ -561,7 +566,6 @@
     bottom: 0;
     text-align: right;
     font-size: 11px;
-    font-family: 'FontAwesome', 'Open Sans';
     color: rgb(108,0,0);
     background: #FCFCFC;
     padding: 0 20px;
@@ -1204,7 +1208,6 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4dffffff', end
 
 .vp-wrap .vp-html .field .input h2,
 .vp-wrap .vp-html .field .input h3 {
-    font-family: 'Open Sans';
     font-weight: 300;
 }
 .vp-wrap .vp-html .field .input .hero h2,

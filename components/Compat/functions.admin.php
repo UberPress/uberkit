@@ -35,17 +35,22 @@ function uk_color_scheme() {
 	
 	$scheme = uk_get_wp_admin_color_scheme();
 	
-	$color = $scheme->colors[3];
+	$primary	= $scheme->colors[0];
+	$accent		= $scheme->colors[3];
 	
 	echo '<style type="text/css">
+	.vp-wrap .vp-left-panel {
+		background: ' . $primary . ';
+	}	
+	
 	.vp-wrap .vp-menus li.vp-current > a.vp-menu-goto {
-		border-left-color: ' . $color . ';
+		border-left-color: ' . $accent . ';
 	} 
 	.vp-wrap a {
-		color: ' . $color . ';
+		color: ' . $accent . ';
 	}
 	.vp-wrap .vp-submit .vp-button:hover {
-		background: ' . $color . ';
+		background: ' . $accent . ';
 	}
 	</style>';
   
