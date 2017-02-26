@@ -3,9 +3,9 @@
 Contributors: ANEX
 Donate link:
 Tags: option, metabox, and shortocode generator framework
-Requires at least: 4.0.0
-Tested up to: 4.5.3
-Stable tag: 0.9.0
+Requires at least: 4.5.0
+Tested up to: 4.7.2
+Stable tag: 0.10.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -23,9 +23,16 @@ A: -
 
 == Screenshots ==
 
-None
+-
 
 == Changelog ==
+# 0.10.0 - Release Date: 26/02/2017 #
+* Improvement: Admin Options UI
+* Update: FontAwesome to 4.7.0
+* Fix: Removed Open Sans Declarations in CSS for WordPress 4.6 Compatibility
+* Fix: Renamed Markdown_Parser base function to __construct() for PHP 7 Compatibility
+* Fix: Renamed WPAlchemy_MetaBox base function to __construct() for PHP 7 Compatibility
+
 # 0.9.0 - Release Date: 23/07/2016 #
 * Add: Admin Body Class (.uberkit) to UberKit Option Pages
 * Improvment: Admin Option UI (CSS)

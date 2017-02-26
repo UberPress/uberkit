@@ -1,3 +1,10 @@
+# 0.10.0 - Release Date: 26/02/2017 #
+* Improvement: Admin Options UI
+* Update: FontAwesome to 4.7.0
+* Fix: Removed Open Sans Declarations in CSS for WordPress 4.6 Compatibility
+* Fix: Renamed Markdown_Parser base function to __construct() for PHP 7 Compatibility
+* Fix: Renamed WPAlchemy_MetaBox base function to __construct() for PHP 7 Compatibility
+
 # 0.9.0 - Release Date: 23/07/2016 #
 * Add: Admin Body Class (.uberkit) to UberKit Option Pages
 * Improvment: Admin Option UI (CSS)
